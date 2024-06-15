@@ -1,0 +1,85 @@
+
+  <div class="container" data-bs-theme="dark">
+    <div class="alert alert-light" role="alert">
+      <h3>Brinquedos cadastrados no sistema:</h3>
+    </div>
+    <form >
+      <div class="card">
+        <div class="card-header text-white bg-primary">
+          <h4>Filtros</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <label for="nomeBrinquedo" class="form-label">Nome do Brinquedo:</label>
+              <input
+              type="text"
+              class="form-control"
+              name="nomeBrinquedo"
+              [(ngModel)]="seletor.nomeBrinquedo">
+            </div>
+            <div class="col-md-3 form-group">
+              <label for="valorMinimo" class="form-label">Valor Mínimo:</label>
+              <input
+              type="number"
+              class="form-control"
+              name=" valorMinimo"
+              [(ngModel)]="seletor.valorMinimo">
+            </div>
+            <div class="col-md-3 form-group">
+              <label for="valorMaximo" class="form-label">Valor Máximo:</label>
+              <input
+              type="number"
+              class="form-control"
+              name="valorMaximo"
+              [(ngModel)]="seletor.valorMaximo">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+                <button
+                type="submit"
+                class="btn btn-primary col-md-12"
+                (click)="pesquisar()"
+                name="btnPesquisar"
+                >Pesquisar</button>
+            </div>
+            <div class="col-md-6">
+              <button
+              type="submit"
+              class="btn btn-warning col-md-12"
+              (click)="limpar()"
+              name="btnPesquisar"
+              >Limpar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br><br>
+    <table class="table table-dark table-striped border-primary">
+      <thead style="text-align: center;">
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Quantidade em Estoque</th>
+          <th>Valor da diária</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider border-primary" style="text-align: center;">
+        @for (brinquedo of brinquedos; track brinquedo){
+          <tr>
+            <td>{{ brinquedo.nome }}</td>
+            <td>{{ brinquedo.descricao }}</td>
+            <td>{{ brinquedo.quantEstoque }}</td>
+            <td>{{ brinquedo.valorDiaria}}</td>
+          </tr>
+        }
+
+      </tbody>
+    </table>
+
+  </div>
+
