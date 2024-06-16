@@ -59,10 +59,10 @@
       <thead style="text-align: center;">
         <tr>
           <th>Nome</th>
-          <th style="width: 800px;">Descrição</th>
+          <th style="width: 600px;">Descrição</th>
           <th >Estoque</th>
           <th>Valor da diária</th>
-          <th>Ações</th>
+          <th style="width: 145;">Ações</th>
         </tr>
       </thead>
       <tbody class="table-group-divider border" style="text-align: center; border-color: white;">
@@ -73,14 +73,19 @@
             <td>{{ brinquedo.quantEstoque }}</td>
             <td>R$ {{ brinquedo.valorDiaria}}</td>
             <td>
-                  <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;">Alugar</button>
+              <div class="row">
+                  <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;" (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>
+              </div>
           </td>
           </tr>
         }
       </tbody>
     </table>
     <div style="text-align: right;">
-     <button class="btn btn-warning col-md-3" style="width: 171px;"><img src="assets/images/IconMais.png" style="width: 10px; height: 10px; padding-bottom: 1px;" alt="adicionar novo brinquedo">
+     <button class="btn btn-warning col-md-3" style="width: 171px;"><img src="assets/images/IconMais.png" style="width: 14px;
+      height: 16px;
+      padding-bottom: 3px;" alt="adicionar novo brinquedo">
       <strong>Novo Brinquedo</strong></button>
     </div>
   </div>
