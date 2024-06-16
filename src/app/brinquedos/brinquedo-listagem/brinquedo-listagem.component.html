@@ -1,8 +1,5 @@
 
-  <div class="container" data-bs-theme="dark" style="width: 80%;">
-    <div class="alert alert-light" role="alert">
-      <h3>Brinquedos cadastrados no sistema:</h3>
-    </div>
+  <div class="container" data-bs-theme="dark" style="width: 75%;">
     <form >
       <div class="card">
         <div class="card-header text-white bg-primary">
@@ -58,27 +55,25 @@
       </div>
     </form>
     <br><br>
-    <table class="table table-dark table-striped border-primary">
+    <table class="table table-dark table-striped border" style="border-color: white;">
       <thead style="text-align: center;">
         <tr>
           <th>Nome</th>
-          <th style="width: 600px;">Descrição</th>
-          <th >Quantidade em Estoque</th>
+          <th style="width: 800px;">Descrição</th>
+          <th >Estoque</th>
           <th>Valor da diária</th>
           <th>Ações</th>
         </tr>
       </thead>
-      <tbody class="table-group-divider border-primary" style="text-align: center;">
+      <tbody class="table-group-divider border" style="text-align: center; border-color: white;">
         @for (brinquedo of brinquedos; track brinquedo){
           <tr>
             <td>{{ brinquedo.nome }}</td>
             <td>{{ brinquedo.descricao }}</td>
             <td>{{ brinquedo.quantEstoque }}</td>
-            <td>{{ brinquedo.valorDiaria}}</td>
+            <td>R$ {{ brinquedo.valorDiaria}}</td>
             <td>
-              <div class="row">
-                  <button class="btn btn-primary col-md-4" style="width: 60px; text-align: center;">Alugar</button>
-              </div>
+                  <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;">Alugar</button>
           </td>
           </tr>
         }
