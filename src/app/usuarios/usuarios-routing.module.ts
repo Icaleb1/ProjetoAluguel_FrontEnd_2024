@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsuarioDetalheComponent } from './usuario-detalhe/usuario-detalhe.component';
 
 const routes: Routes = [
-  {path: "cadastroUsuario", component: UsuarioDetalheComponent}
+  {path: "novo", component: UsuarioDetalheComponent}
 ];
 
 @NgModule({
@@ -11,4 +11,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class UsuariosRoutingModule { }
-  

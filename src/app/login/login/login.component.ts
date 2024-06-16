@@ -42,7 +42,7 @@ export class LoginComponent {
 
 
   public cadastro(){
-    this.router.navigate(['/usuarios/cadastroUsuario']);
+    this.router.navigate(['/usuario/novo']);
   }
 
 }
