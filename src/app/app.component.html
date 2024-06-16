@@ -1,6 +1,6 @@
 <body style="background-image: linear-gradient(to right, #6aaeed, #3561ae)">
-<div class="d-flex">
-  <nav class="sidebar bg-body-tertiary" data-bs-theme="dark" onmouseover="this.style.width = '300px';" onmouseout="this.style.width = '150px';" style="text-align: center;  z-index: 1000; color: #ffff; width: 15%; background-color: var(--bs-body-tertiary); position: fixed; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; ">
+<div class="d-flex" style="text-align: center;">
+  <nav class="sidebar bg-body-tertiary" data-bs-theme="dark" onmouseover="this.style.width = '300px';" onmouseout="this.style.width = '150px';" style="transition: all 0.3s cubic-bezier(1,1,1,1);z-index: 1000; color: #ffff; width: 15%; background-color: var(--bs-body-tertiary); position: fixed; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; ">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <br>
@@ -16,32 +16,28 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler"><button onmouseout=""  style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#0056b3';" onmouseout="this.style.backgroundColor='#007bff';">
+        <span class="navbar-toggler"><button style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#0056b3';" onmouseout="this.style.backgroundColor='#007bff';">
           <strong>Carrinho</strong></button></span>
       </button>
       <div id="navbarSupportedContent" class="collapse navbar-collapse">
-        <ul class="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Brinquedos
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/vacinas/detalhe">Cadastro</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="/brinquedos">Listagem</a></li>
-            </ul>
-        </ul>
+      <table class="table table-dark table-striped border-primary">
+        <br>
+        <tr>
+          <th>Nome</th>
+          <th><div class="col form-group" style="background-color: #2b3035; width: 90px; align-items: center;">
+            <label for="valorMaximo" class="form-label">Quantidade:</label>
+            <input type="number" class="form-control" name="valorMaximo"></div>
+          </th>
+        <tr>
+          
+        </table>
       </div>
-      <ul class="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Brinquedos
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/vacinas/detalhe">Cadastro</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/brinquedos">Listagem</a></li>
-          </ul>
+      <ul class="nav-link" style="color: rgb(0, 123, 255);">
+        <br>
+        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(0, 123, 255)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none;padding-top: 30px; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
+        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(0, 123, 255)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none;padding-top: 30px; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
+        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(0, 123, 255)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none;padding-top: 30px; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
+        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(0, 123, 255)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none;padding-top: 30px; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
       </ul>
     </div>
   </nav>
