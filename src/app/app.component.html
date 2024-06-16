@@ -20,21 +20,20 @@
           <strong>Carrinho</strong></button></span>
       </button>
       <div id="navbarSupportedContent" class="collapse navbar-collapse">
-      <table class="table table-dark table-striped border-primary">
         <br>
-      <thead>
+      <table class="table table-dark table-striped">
+
+        <thead style="text-align: center;" >
+        <tr style="font-size: 15px;">
+          <th style="background-color: #2b3035; width: 168px;">Nome</th>
+          <th style="background-color: #2b3035; width: 60px;">Quantidade</th>
+          <th style="background-color: #2b3035; width: 50px;">Ação</th>
         <tr>
-          <th>Nome</th>
-          <th><div class="col form-group" style="background-color: #2b3035; width: 90px; align-items: center;">
-            <label for="valorMaximo" class="form-label">Quantidade:</label>
-            <input type="number" class="form-control" name="valorMaximo"></div>
-          </th>
-        <tr>
-      </thead>
+        </thead>
           <tbody class="table-group-divider" style="text-align: center; border-color: white;">
              @for (brinquedo of brinquedos; track brinquedo) {
               <tr onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'" style="width: 2000px; font-size: 14px;">
-                <td>{{ brinquedo.brinquedo.nome }}</td>
+                <td>{{ brinquedo.brinquedo.nome }}</td> 
                 <td>
                   <div class="col form-group">
                     <input style="color: #6aaeed; width: 55px;" type="number" class="form-control" name="valorMaximo">
@@ -50,6 +49,7 @@
           </tbody>
           <br>
         </table>
+        <button class="btn btn-warning col-md-3" style="width: 100px; text-align: center;">Confirmar</button>
       </div>
       <ul class="nav-link" style="color: rgb(155, 196, 239);">
         <br>
