@@ -80,7 +80,7 @@ export class BrinquedoListagemComponent implements OnInit{
 
 
   public editar(idBrinquedoSelecionado: number){
-    this.router.navigate(['/brinquedos/cadastro/', idBrinquedoSelecionado])
+    this.router.navigate(['/home/brinquedos/cadastro/', idBrinquedoSelecionado])
   }
 
 

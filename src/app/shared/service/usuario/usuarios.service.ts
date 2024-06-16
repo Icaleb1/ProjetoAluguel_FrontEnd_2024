@@ -25,6 +25,11 @@ export class UsuariosService {
     return this.httpClient.put<any>(this.API+"/atualizar", usuario)
   }
 
+  public listarTodos(): Observable<Array<Usuario>>{
+    return this.httpClient.get<Array<Usuario>>(this.API+"/todos");
+  }
+
+
 
 
 }

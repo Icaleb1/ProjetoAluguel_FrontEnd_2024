@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     }
 
     //const idUsuario = this.getUsuarioId(); // ajuste para obter o idUsuario de forma adequada
-    //this.consultarTodosBrinquedosCarrinho(idUsuario);
+    this.consultarTodosBrinquedosCarrinho(this.usuarioAutenticado.id);
   }
 
   logout(){
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
 
 
   private consultarTodosBrinquedosCarrinho(idUsuario: number): void {
-    this.carrinhoService.consultarCarrinhoPorIdUsuario(idUsuario).subscribe(
+    this.carrinhoService.consultarCarrinhoPorIdUsuario(this.usuarioAutenticado.id).subscribe(
       resultado => {
         this.itens = resultado.itens;
         this.brinquedos = this.itens; // Assumindo que todos os itens são brinquedos
@@ -63,11 +63,6 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  private getUsuarioId(): number {
-    // Implemente a lógica para obter o id do usuário
-    // Pode ser de um serviço de autenticação, ou de outra fonte
-    return 1; // Exemplo: substitua isso pela lógica real
-  }
 
 
   public removerItem(itemSelecionado: ItemCarrinho) {
@@ -82,7 +77,7 @@ export class HomeComponent implements OnInit {
       if (result.value) {
         this.itemCarrinhoService.removerDoCarrinho(itemSelecionado.id).subscribe(
           resultado => {
-            this.consultarTodosBrinquedosCarrinho(this.getUsuarioId());
+            this.consultarTodosBrinquedosCarrinho(this.usuarioAutenticado.id);
           },
           erro => {
             Swal.fire('Erro!', 'Erro ao excluir item: ' + erro.error.mensagem, 'error');
@@ -93,13 +88,12 @@ export class HomeComponent implements OnInit {
   }
 
   private pesquisar(): void {
-    const idUsuario = this.getUsuarioId();
-    this.consultarTodosBrinquedosCarrinho(idUsuario);
+    this.consultarTodosBrinquedosCarrinho(this.usuarioAutenticado.id);
   }
 
   public confirmar(){
     this.carrinhoService.setItensCarrinho(this.itens)
-    this.router.navigate(['/alugueis/alugar']);
+    this.router.navigate(['/home/alugueis/alugar']);
   }
 
 
