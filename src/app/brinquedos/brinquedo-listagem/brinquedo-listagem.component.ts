@@ -1,4 +1,4 @@
-import { BrinquedosService } from './../../shared/service/brinquedos.service';
+import { BrinquedosService } from '../../shared/service/brinquedo/brinquedos.service';
 import { Component, OnInit } from '@angular/core';
 import { Brinquedo } from '../../shared/model/brinquedo';
 import { ActivatedRoute, Router } from '@angular/router';

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Brinquedo } from '../model/brinquedo';
-import { BrinquedoSeletor } from '../model/seletor/brinquedoSeletor';
+import { Brinquedo } from '../../model/brinquedo';
+import { BrinquedoSeletor } from '../../model/seletor/brinquedoSeletor';
 
 @Injectable({
   providedIn: 'root'
