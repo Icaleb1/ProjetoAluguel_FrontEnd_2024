@@ -13,5 +13,4 @@ export class Aluguel{
     valoresAdicionais: number;
     valorTotal: number;
     enderecoDeEntrega: Endereco;
-    frete: Frete;
   }

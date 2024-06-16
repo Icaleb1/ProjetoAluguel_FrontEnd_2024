@@ -20,12 +20,12 @@ export const requestAngular17Interceptor: HttpInterceptorFn = (req, next) => {
 
   return next(authReq).pipe(
     catchError((error: HttpErrorResponse) => {
-      const router = inject(Router);
-      const loginService = inject(LoginServiceService);
-      if (error.status === 401 || error.status === 403) {
-        loginService.sair();
-        router.navigate(['/login']);
-      }
+      // const router = inject(Router);
+      // const loginService = inject(LoginServiceService);
+      // if (error.status === 401 || error.status === 403) {
+      //   loginService.sair();
+      //   router.navigate(['/login']);
+      // }
       return throwError(error);
     })
   );

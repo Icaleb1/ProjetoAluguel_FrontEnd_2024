@@ -7,6 +7,8 @@ import { BrinquedoSeletor } from '../../shared/model/seletor/brinquedoSeletor';
 import { CarrinhosService } from '../../shared/service/carrinho/carrinhos.service';
 import { ItemCarrinho } from '../../shared/model/itemCarrinho';
 import Swal from 'sweetalert2';
+import { Carrinho } from '../../shared/model/carrinho';
+import { Usuario } from '../../shared/model/usuario';
 
 
 @Component({
@@ -17,16 +19,37 @@ import Swal from 'sweetalert2';
 
 export class BrinquedoListagemComponent implements OnInit{
 
+
+  public usuarioAutenticado: Usuario;
+  public ehAdministrador: boolean = false;
   public brinquedos: Array<Brinquedo> = new Array();
   public seletor: BrinquedoSeletor = new BrinquedoSeletor();
+  idCarrinho: number;
+  carrinho: Carrinho;
 
   constructor(private brinquedosService : BrinquedosService,
               private itemCarrinhosService : ItemCarrinhosService,
               private router: Router,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private carrinhoService: CarrinhosService,
   ){}
 
   ngOnInit(): void {
+    let usuarioNoStorage = localStorage.getItem('usuarioAutenticado');
+
+    if(usuarioNoStorage){
+      this.usuarioAutenticado = JSON.parse(usuarioNoStorage);
+      this.ehAdministrador = this.usuarioAutenticado?.administrador == true;
+
+      if(this.ehAdministrador){
+        this.router.navigate(['/home/brinquedos']);
+
+      }
+    } else {
+      this.router.navigate(['/login']);
+    }
+
+
     this.consultarTodosBrinquedos();
   }
   public limpar(){
@@ -61,19 +84,31 @@ export class BrinquedoListagemComponent implements OnInit{
   }
 
   public adicionarItemAoCarrinho(brinquedo: Brinquedo): void {
-    const itemCarrinho: ItemCarrinho = {
-      id: 0, // o ID será gerado no backend
-      idCarrinho: 1, // ajuste conforme necessário para obter o carrinho atual
-      brinquedo: brinquedo,
-      quantidade: 1
-    };
+    if (brinquedo.estoqueDisponivel < 1) {
+      Swal.fire('Não é possível alugar!', 'Este brinquedo não possuí itens dísponivel em estoque.', 'error');
+      return;
+    }
 
-    this.itemCarrinhosService.adicionarAoCarrinho(itemCarrinho).subscribe(
-      resultado => {
-        console.log('Item adicionado ao carrinho com sucesso!', resultado);
+    this.carrinhoService.consultarCarrinhoPorIdUsuario(this.usuarioAutenticado.id).subscribe(
+      carrinho => {
+        const itemCarrinho: ItemCarrinho = {
+          id: 0, // o ID será gerado no backend
+          idCarrinho: carrinho.id, // Obtemos o idCarrinho do carrinho do usuário
+          brinquedo: brinquedo,
+          quantidade: 1
+        };
+
+        this.itemCarrinhosService.adicionarAoCarrinho(itemCarrinho).subscribe(
+          resultado => {
+            console.log('Item adicionado ao carrinho com sucesso!', resultado);
+          },
+          erro => {
+            console.error('Erro ao adicionar item ao carrinho!', erro);
+          }
+        );
       },
       erro => {
-        console.error('Erro ao adicionar item ao carrinho!', erro);
+        console.error('Erro ao obter o carrinho do usuário!', erro);
       }
     );
   }
@@ -85,7 +120,7 @@ export class BrinquedoListagemComponent implements OnInit{
 
 
   public excluir(brinquedoSelecionado: Brinquedo){
-    if (brinquedoSelecionado.quantEstoque > 0) {
+    if (brinquedoSelecionado.estoqueTotal > 0) {
       Swal.fire('Não é possível excluir!', 'Este brinquedo possuí itens em estoque e não pode ser excluído.', 'error');
       return;
     }

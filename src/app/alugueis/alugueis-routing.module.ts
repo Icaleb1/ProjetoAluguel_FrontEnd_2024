@@ -3,8 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AluguelDetalheComponent } from './aluguel-detalhe/aluguel-detalhe.component';
 
 const routes: Routes = [
-  {path: "", component: AluguelDetalheComponent},
-  {path: "alugar", component: AluguelDetalheComponent}
+  {path: 'alugar/:id', component: AluguelDetalheComponent}
 ];
 
 @NgModule({

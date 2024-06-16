@@ -20,5 +20,9 @@ export class EnderecosService {
     return this.httpClient.get<Endereco[]>(this.API+"/todos/"+idUsuario);
   }
 
+  public consultarPrincipalPorIdUsuario(idUsuario:number): Observable<Endereco>{
+    return this.httpClient.get<Endereco>(this.API+"/principal/"+idUsuario)
+  }
+
 
 }
