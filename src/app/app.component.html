@@ -32,31 +32,30 @@
         </thead>
           <tbody class="table-group-divider" style="text-align: center; border-color: white;">
              @for (brinquedo of brinquedos; track brinquedo) {
-              <tr onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'" style="width: 2000px; font-size: 14px;">
+              <tr style="width: 2000px; font-size: 14px;">
                 <td>{{ brinquedo.brinquedo.nome }}</td> 
                 <td>
                   <div class="col form-group">
-                    <input style="color: #6aaeed; width: 55px;" type="number" class="form-control" name="valorMaximo">
+                    <input style="color: #6aaeed;border-color: white; width: 80px;" type="number" class="form-control" name="valorMaximo">
                   </div>
                 </td>
                 <td>
-                  <div class="row">
-                      <button class="btn btn-danger col-md-3" style="width: 45px; text-align: center;"><img style="width: 25px; height: 25px; text-align: center;" src="assets/images/IconLixeira.png" alt="lixeira"></button>
-                  </div>
+                      <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 14px; height: 18px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>
               </td>
               </tr>
               }
           </tbody>
           <br>
         </table>
+        <input style="color: #6aaeed;border-color: white; width: 80px;" type="number" class="form-control" name="valorMaximo">
         <button class="btn btn-warning col-md-3" style="width: 100px; text-align: center;">Confirmar</button>
       </div>
       <ul class="nav-link" style="color: rgb(155, 196, 239);">
         <br>
-        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(0, 123, 255)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
-        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(0, 123, 255)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
-        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(0, 123, 255)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
-        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(0, 123, 255)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
+        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
+        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Endereços</strong></a></li>&thinsp;
+        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Aluguéis</strong></a></li>&thinsp;
+        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
       </ul>
     </div>
   </nav>
