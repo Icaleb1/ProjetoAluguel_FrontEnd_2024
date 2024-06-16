@@ -12,6 +12,7 @@ export class Usuario {
 	administrador: boolean;
 	enderecos: Array<Endereco>;
 	ativo: boolean;
+  idSessao: string  ;
 
 
 }

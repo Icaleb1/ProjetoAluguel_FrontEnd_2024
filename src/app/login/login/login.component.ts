@@ -23,18 +23,23 @@ export class LoginComponent {
 
   }
 
-  public realizarLogin(){
+  public realizarLogin() {
     this.LoginServiceService.autenticar(this.dto).subscribe(
       (usuarioAutenticado: Usuario) => {
-        Swal.fire('Sucesso', 'Usuario autenticado com sucesso', 'success');
-        localStorage.setItem('usuarioAutenticado', JSON.stringify(usuarioAutenticado));
-        this.router.navigate(['/home']);
+        if (usuarioAutenticado.idSessao) {
+          Swal.fire('Sucesso', 'Usuário autenticado com sucesso', 'success');
+          localStorage.setItem('usuarioAutenticado', JSON.stringify(usuarioAutenticado));
+          this.router.navigate(['/home']);
+        } else {
+          Swal.fire('Erro', 'Sessão não iniciada corretamente', 'error');
+        }
       },
       (erro) => {
         Swal.fire('Erro', erro.error.mensagem, 'error');
       }
-    )
+    );
   }
+
 
   public cadastro(){
     this.router.navigate(['/usuarios/cadastroUsuario']);

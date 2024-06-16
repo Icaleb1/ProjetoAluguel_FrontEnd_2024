@@ -20,3 +20,4 @@ export class LoginServiceService {
     localStorage.removeItem('usuarioAutenticado');
   }
 }
+
