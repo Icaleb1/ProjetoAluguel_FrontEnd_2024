@@ -11,10 +11,10 @@ import { ItemCarrinho } from './shared/model/itemCarrinho';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-
-  itens: any[]; // ajuste o tipo conforme necessário
+  itens: ItemCarrinho[] = [];
+  brinquedos: ItemCarrinho[] = [];
 
   constructor(private carrinhoService: CarrinhosService) { }
 
@@ -26,7 +26,8 @@ export class AppComponent implements OnInit{
   private consultarTodosBrinquedosCarrinho(idUsuario: number): void {
     this.carrinhoService.consultarCarrinhoPorIdUsuario(idUsuario).subscribe(
       resultado => {
-        this.itens = resultado.itens; // ajuste se necessário
+        this.itens = resultado.itens;
+        this.brinquedos = this.itens; // Assumindo que todos os itens são brinquedos
       },
       erro => {
         console.error('Erro ao consultar Brinquedos! ', erro);
@@ -34,13 +35,14 @@ export class AppComponent implements OnInit{
     );
   }
 
+
   private getUsuarioId(): number {
     // Implemente a lógica para obter o id do usuário
     // Pode ser de um serviço de autenticação, ou de outra fonte
     return 1; // Exemplo: substitua isso pela lógica real
   }
 
-  
+
   title = 'ProjetoAluguel_FrontEnd_2024';
 
   sidebarWidth: number = 250;
