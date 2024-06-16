@@ -12,5 +12,5 @@ export class Aluguel{
     dataDevDefinitiva: Date;
     valoresAdicionais: number;
     valorTotal: number;
-    enderecoDeEntrega: Endereco;
+    idEnderecoDeEntrega: number;
   }

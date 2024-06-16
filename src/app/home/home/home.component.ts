@@ -47,6 +47,11 @@ export class HomeComponent implements OnInit {
   }
   }
 
+  public cadastrarEndereco(){
+    this.router.navigate(['/home/enderecos/detalhe']);
+  }
+
+
   logout(){
     localStorage.removeItem('usuarioAutenticado');
     this.router.navigate(['/login']);
@@ -102,32 +107,25 @@ export class HomeComponent implements OnInit {
   }
 
   criarAluguel() {
-    this.enderecoService.consultarPrincipalPorIdUsuario(this.usuarioAutenticado.id).subscribe(
-      (endereco: Endereco) => {
-        const novoAluguel: Aluguel = {
-          id: 0,
-          usuario: this.usuarioAutenticado,
-          itens: [],
-          dataAluguel: new Date(),
-          dataDevolucao: new Date(),
-          dataDevDefinitiva: new Date(),
-          valoresAdicionais: 0,
-          valorTotal: 0,
-          enderecoDeEntrega: endereco,
-        };
+    const novoAluguel: Aluguel = {
+      id: 0,
+      usuario: this.usuarioAutenticado,
+      itens: [],
+      dataAluguel: new Date(),
+      dataDevolucao: new Date(),
+      dataDevDefinitiva: new Date(),
+      valoresAdicionais: 0,
+      valorTotal: 0,
+      idEnderecoDeEntrega: 0,
+    };
 
-        this.alugueisService.cadastrarAluguel(novoAluguel).subscribe(
-          aluguelCriado => {
-            const aluguelId = aluguelCriado.id;
-            this.adicionarItensAoAluguel(aluguelId);
-          },
-          erro => {
-            Swal.fire('Erro!', 'Erro ao criar aluguel: ' + erro.error.mensagem, 'error');
-          }
-        );
+    this.alugueisService.cadastrarAluguel(novoAluguel).subscribe(
+      aluguelCriado => {
+        const aluguelId = aluguelCriado.id;
+        this.adicionarItensAoAluguel(aluguelId);
       },
       erro => {
-        Swal.fire('Erro!', 'Erro ao consultar endereço principal: ' + erro.error.mensagem, 'error');
+        Swal.fire('Erro!', 'Erro ao criar aluguel: ' + erro.error.mensagem, 'error');
       }
     );
   }
@@ -157,6 +155,16 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['/home/alugueis/alugar/', aluguelId]);
       }
     );
+  }
+
+  public validarQuantidade(item: ItemCarrinho) {
+    if (item.quantidade < 1) {
+      item.quantidade = 1;
+      Swal.fire('Aviso!', 'A quantidade deve ser maior ou igual a um.', 'warning');
+    } else if (item.quantidade > item.brinquedo.estoqueDisponivel) {
+      item.quantidade = item.brinquedo.estoqueDisponivel;
+      Swal.fire('Aviso!', 'A quantidade não pode ser maior que a disponível.', 'warning');
+    }
   }
 
 }

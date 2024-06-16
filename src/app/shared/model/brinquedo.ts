@@ -7,4 +7,5 @@ export class Brinquedo {
   estoqueDisponivel: number;
   quantEstoque: number;
   valorDiaria: number;
+  quantidadeDisponivel: number;
 }

@@ -1,6 +1,8 @@
+<pre>{{endereco | json}}</pre>
+
 <div class="container" data-bs-theme="dark" style="width: 75%;">
     <br>
-    <form>
+    <form #enderecoForm="ngForm">
       <div class="card border-3 " >
         <div class="card-header text-white bg-primary border-3">
           <h4>Novo Endereço</h4>
@@ -11,63 +13,63 @@
 
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="nome"><strong>Nome:</strong></label>
-                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="nome">
+                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="nome" [(ngModel)]="endereco.nome">
             </div>
             
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="principal"><strong>Principal:</strong></label>
-                <input type="checkbox" style="color: #6aaeed; border-color: white;" class="form-control" name="principal">
+                <input type="checkbox" style="color: #6aaeed; border-color: white;" class="form-control" name="principal" [(ngModel)]="endereco.principal">
             </div>
             
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="cep"><strong>CEP:</strong></label>
-                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="cep">
+                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="cep" [(ngModel)]="endereco.cep">
             </div>
             
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="estado"><strong>Estado:</strong></label>
-                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="estado">
+                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="estado" [(ngModel)]="endereco.estado">
             </div>
             
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="cidade"><strong>Cidade:</strong></label>
-                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="cidade">
+                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="cidade" [(ngModel)]="endereco.cidade">
             </div>
             
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="bairro"><strong>Bairro:</strong></label>
-                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="bairro">
+                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="bairro" [(ngModel)]="endereco.bairro">
             </div>
             
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="lote"><strong>Lote:</strong></label>
-                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="lote">
+                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="lote" [(ngModel)]="endereco.lote">
             </div>
             
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="numero"><strong>Número:</strong></label>
-                <input type="number" style="color: #6aaeed; border-color: white;" class="form-control" name="numero">
+                <input type="number" style="color: #6aaeed; border-color: white;" class="form-control" name="numero" [(ngModel)]="endereco.numero">
             </div>
             
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="complemento"><strong>Complemento:</strong></label>
-                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="complemento">
+                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="complemento" [(ngModel)]="endereco.complemento">
             </div>
             
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="referencias"><strong>Referências:</strong></label>
-                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="referencias">
+                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="referencias" [(ngModel)]="endereco.referencia">
             </div>
         
             <div class="row" >
               <div class="form-group col-md-2">
                 <label>&nbsp;</label>
-                <button type="submit" class="form-control btn btn-primary"><i class="bi bi-check">
+                <button type="submit" class="form-control btn btn-primary" (click)="salvar()"><i class="bi bi-check">
                   </i><strong>Cadastrar</strong></button>
               </div>
               <div class="form-group col-md-1">
                 <label>&nbsp;</label>
-                <button type="submit" class="form-control btn btn-warning"><strong>Voltar</strong></button>
+                <button type="submit" class="form-control btn btn-warning" (click)="voltar()"><strong>Voltar</strong></button>
               </div>
             </div>
             </div>

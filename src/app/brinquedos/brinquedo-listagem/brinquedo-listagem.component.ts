@@ -56,6 +56,8 @@ export class BrinquedoListagemComponent implements OnInit{
     this.seletor = new BrinquedoSeletor();
   }
 
+ 
+
   private consultarTodosBrinquedos(){
     this.brinquedosService.listarTodos().subscribe(
       resultado => {

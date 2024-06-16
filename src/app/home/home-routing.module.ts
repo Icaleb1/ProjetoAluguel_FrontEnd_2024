@@ -1,3 +1,4 @@
+import { EnderecosModule } from './../enderecos/enderecos.module';
   import { LoginModule } from './../login/login.module';
   import { HomeModule } from './home.module';
   import { NgModule } from '@angular/core';
@@ -24,6 +25,10 @@
         {
           path: 'alugueis',
           loadChildren:() => import('../alugueis/alugueis.module').then(m => m.AlugueisModule)
+        },
+        {
+          path: 'enderecos',
+          loadChildren:() => import('../enderecos/enderecos.module').then(m => m.EnderecosModule)
         },
       ]
     },

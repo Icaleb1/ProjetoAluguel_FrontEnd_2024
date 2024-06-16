@@ -56,7 +56,7 @@ export class AluguelDetalheComponent implements OnInit {
       this.consultarTodosPorIdAluguel();
     });
 
-    this.consultarEnderecosDeUsuario(this.usuarioAutenticado.id);
+    this.consultarEnderecosDeUsuario();
 
     this.carrinhosService.itensCarrinho$.subscribe(itensCarrinho => {
       if (itensCarrinho) {
@@ -69,7 +69,7 @@ export class AluguelDetalheComponent implements OnInit {
     return r1 && r2 ? r1.id === r2.id : r1 === r2;
   }
 
-  private consultarEnderecosDeUsuario(idUsuario: number): void {
+  private consultarEnderecosDeUsuario(): void {
     this.enderecoService.consultarEnderecosPorIdUsuario(this.usuarioAutenticado.id).subscribe(
       resultado => {
         this.enderecos = resultado;
@@ -101,6 +101,9 @@ export class AluguelDetalheComponent implements OnInit {
         Swal.fire('Erro ao buscar brinquedo ', erro, 'error');
       }
     );
+  }
+  public cadastrarEndereco(){
+    this.router.navigate(['/home/enderecos/detalhe']);
   }
 
 

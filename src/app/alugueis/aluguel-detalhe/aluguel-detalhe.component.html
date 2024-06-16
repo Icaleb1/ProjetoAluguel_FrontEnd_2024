@@ -10,15 +10,15 @@
           <div class="row">
 
             <div class="form-group col-md-6" style="text-align: left;">
-              <label  for="nome"><strong>Data Devolução:</strong></label>
-              <input type="date" style="color: #6aaeed;" class="form-control" name="nome">
+              <label  for="dataDevolucao"><strong>Data Devolução:</strong></label>
+              <input type="date" style="color: #6aaeed;" class="form-control" name="dataDevolucao">
             </div>
             <div class="form-group col-md-3" style="text-align: left;">
               <label for="enderecoDeEntrega"><strong>Endereço</strong></label>
               <select
               class="form-control"
               name="enderecoDeEntrega"
-              [(ngModel)]="aluguel.enderecoDeEntrega"
+              [(ngModel)]="aluguel.idEnderecoDeEntrega"
               [compareWith]="compareById"
             >
               @for(endereco of enderecos; track endereco.id){
@@ -37,7 +37,7 @@
                   <strong>Voltar</strong>
                 </button>
               </div>
-              <button class="btn btn-warning" style="width: 200px;">
+              <button class="btn btn-warning" style="width: 200px;" (click)="cadastrarEndereco()">
                 <img src="assets/images/IconMais.png" style="width: 18px; height: 20px; padding-bottom: 3px;" alt="adicionar novo endereço">
                 <strong>Adicionar Endereço</strong>
               </button>
