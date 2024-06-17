@@ -47,10 +47,22 @@
           </tbody>
           <br>
         </table>
-        <div class="row" style="text-align: center;">
-          <input style="color: #6aaeed;border-color: white; width: 80px;" type="number" class="form-control" name="valorMaximo">
-          <button class="btn btn-warning col-md-3" style="width: 100px;">Confirmar</button>
-        </div>
+        <!-- Apenas esboço! -->
+        <div class="container mt-3">
+          <div class="row align-items-end">
+              <div class="col-md-6 form-group">
+                  <label for="enderecos" class="form-label"><strong>Endereços</strong></label>
+                  <select class="form-control border-primary border-1" name="enderecos">
+                      <!-- @for(paisOrigem of paises; track paisOrigem.id){ -->
+                      <option>enderecos</option>
+                      <!--)-->
+                  </select>
+              </div>
+              <div class="col-md-3">
+                  <button class="btn btn-warning" style="width: 100px; height: 40px;"><strong>Confirmar</strong></button>
+              </div>
+          </div>
+      </div>
       </div>
       <ul class="nav-link" style="color: rgb(155, 196, 239);">
         <br>
