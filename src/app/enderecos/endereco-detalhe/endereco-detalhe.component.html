@@ -1,5 +1,3 @@
-<pre>{{endereco | json}}</pre>
-
 <div class="container" data-bs-theme="dark" style="width: 75%;">
     <br>
     <form #enderecoForm="ngForm">
@@ -8,14 +6,13 @@
           <h4>Cadastrando Endereço</h4>
         </div>
         <div class="card-body bg-dark text-white">
-
-          <div class="row">
-
-            <div class="form-group col-md-3" style="text-align: left;">
-                <label for="nome"><strong>Nome:</strong></label>
-                <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="nome" [(ngModel)]="endereco.nome">
+          <div class="row justify-content-center" style="text-align: center;">
+            <div class="form-group col-md-3 d-flex flex-column align-items-center">
+              <label for="nome" style="width: 100%; text-align: left;"><strong>Nome do Endereço:</strong></label>
+              <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="nome" [(ngModel)]="endereco.nome">
             </div>
-
+          </div>
+            <div class="row">
             <div class="form-group col-md-3" style="text-align: left;">
                 <label for="cep"><strong>CEP:</strong></label>
                 <input type="text" style="color: #6aaeed; border-color: white;" class="form-control" name="cep" [(ngModel)]="endereco.cep">
