@@ -134,14 +134,7 @@ export class AluguelDetalheComponent implements OnInit {
           this.frete = frete;
 
           // Após cadastrar o frete, atualiza o aluguel
-          this.aluguelService.atualizar(this.aluguel).subscribe(
-            () => {
-              Swal.fire('Aluguel atualizado com sucesso!', '', 'success');
-            },
-            (erro) => {
-              Swal.fire('Erro ao atualizar aluguel: ' + erro.error.mensagem, '', 'error');
-            }
-          );
+          this.atualizarAluguelBackend();
         },
         (erro) => {
           Swal.fire('Erro ao cadastrar frete: ' + erro.error.mensagem, '', 'error');
@@ -149,6 +142,58 @@ export class AluguelDetalheComponent implements OnInit {
       );
     }
   }
+
+  private atualizarAluguelBackend(): void {
+    this.aluguelService.atualizar(this.aluguel).subscribe(
+      (aluguelAtualizado) => {
+        // Atualizar this.aluguel com os dados retornados do backend
+        this.aluguel = aluguelAtualizado;
+
+        // Calcula o valor total após atualizar o aluguel
+        const valorTotal = this.calcularValorTotal();
+
+        if (valorTotal !== undefined) {
+          // Após atualizar o aluguel, exibe o valor total e confirmação
+          Swal.fire({
+            title: 'Aluguel atualizado com sucesso!',
+            text: `Valor total: ${valorTotal}`,
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonText: 'Finalizar Aluguel',
+            cancelButtonText: 'Cancelar',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Chama o método para finalizar o aluguel
+              this.executarFinalizacaoAluguel();
+            }
+          });
+        } else {
+          Swal.fire('Erro!', 'O valor total do aluguel não foi calculado corretamente.', 'error');
+        }
+      },
+      (erro) => {
+        Swal.fire('Erro ao atualizar aluguel: ' + erro.error.mensagem, '', 'error');
+      }
+    );
+  }
+
+
+  private executarFinalizacaoAluguel(): void {
+    this.finalizarAluguel(this.aluguel).subscribe(
+      () => {
+        Swal.fire('Aluguel finalizado com sucesso!', '', 'success');
+      },
+      (erro) => {
+        Swal.fire('Erro ao finalizar aluguel: ' + erro.error.mensagem, '', 'error');
+      }
+    );
+  }
+
+
+ private finalizarAluguel(aluguel: Aluguel): Observable<any> {
+    return this.aluguelService.finalizarAluguel(aluguel);
+  }
+
 
 
 
@@ -186,6 +231,26 @@ export class AluguelDetalheComponent implements OnInit {
       }
     );
   }
+
+  calcularValorTotal(): number {
+    let totalItens = 0;
+
+    // Somar o valor diária de cada brinquedo em cada item do carrinho
+    if (this.itens.length > 0) {
+      totalItens = this.itens.reduce((acc, item) => {
+        const valorDiaria = item.brinquedo.valorDiaria; // Assume-se que 'brinquedo' possui o atributo 'valorDiaria'
+        return acc + valorDiaria;
+      }, 0);
+    }
+
+    // Adicionar o valor do frete, se definido
+    if (this.frete.valor) {
+      return totalItens + this.frete.valor;
+    } else {
+      return totalItens;
+    }
+  }
+
 
 
   // finalizarAluguel(){

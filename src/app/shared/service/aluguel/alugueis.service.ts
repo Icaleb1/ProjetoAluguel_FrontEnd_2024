@@ -25,7 +25,11 @@ export class AlugueisService {
   }
 
   public removerItem(idAluguel:number, idItem:number): Observable<any>{
-    return this.httpClient.put<any>(this.API+"/remover-item/"+idAluguel+"/"+idItem, null);
+    return this.httpClient.put<any>(this.API+"/remover-item/", idAluguel + "/" + idItem);
+  }
+
+  public finalizarAluguel(aluguel: Aluguel): Observable<any>{
+    return this.httpClient.put<any>(this.API+"/finalizar", aluguel);
   }
 
 
