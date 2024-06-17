@@ -39,11 +39,11 @@
           <th style="width: 80%;">Nome</th>
           <th>Ações</th>
         </tr>
-      </thead> 
+      </thead>
       <tbody class="table-group-divider border" style="border-color: white;">
-        <!-- @for (endereco of enderecos; track endereco) {-->
+        @for (endereco of enderecos; track endereco){
         <tr class="sobrePor">
-          <td>casa</td>
+          <td>{{endereco.nome}}</td>
           <td>
             <div class="row justify-content-center">
               <button class="btn btn-primary col-md-4" style="width: 88px; text-align: center;"><strong>Principal</strong></button>&nbsp;&nbsp;
@@ -52,10 +52,10 @@
             </div>
           </td>
         </tr>
-        <!-- } -->
+      }
       </tbody>
     </table>
-    
+
   </div>
 
 

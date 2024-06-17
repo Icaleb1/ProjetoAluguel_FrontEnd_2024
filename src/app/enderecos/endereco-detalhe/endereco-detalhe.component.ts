@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Endereco } from '../../shared/model/endereco';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Usuario } from '../../shared/model/usuario';
 
 @Component({
   selector: 'app-endereco-detalhe',
@@ -13,6 +14,7 @@ export class EnderecoDetalheComponent implements OnInit {
 
   public endereco: Endereco = new Endereco();
   public idEndereco: number;
+  public usuarioAutenticado: Usuario;
 
   constructor(
     private enderecosService: EnderecosService,
@@ -21,6 +23,15 @@ export class EnderecoDetalheComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
+
+    const usuarioNoStorage = localStorage.getItem('usuarioAutenticado');
+
+    if (usuarioNoStorage) {
+      this.usuarioAutenticado = JSON.parse(usuarioNoStorage);
+    } else {
+      console.error('Nenhum usuário autenticado encontrado no armazenamento local');
+    }
+
     this.route.params.subscribe((params) => {
       this.idEndereco = params['id'];
       if(this.idEndereco){
@@ -41,13 +52,13 @@ export class EnderecoDetalheComponent implements OnInit {
   }
 
   public salvar(): void{
-    if(this.validarCampos()){
-      if(this.idEndereco){
-        this.atualizarEndereco();
-      }else{
-        this.cadastrarEndereco();
-      }
+
+    if(this.idEndereco){
+      this.atualizarEndereco();
+    }else{
+      this.cadastrarEndereco();
     }
+
   }
 
   public validarCampos(): boolean{
@@ -61,6 +72,7 @@ export class EnderecoDetalheComponent implements OnInit {
   }
 
   public cadastrarEndereco(){
+    this.endereco.idUsuario = this.usuarioAutenticado.id;
     this.enderecosService.cadastrarEndereco(this.endereco).subscribe(
       (resposta) => {
         Swal.fire('Endereço cadastrado com Sucesso! ', '', 'success'); this.voltar();
