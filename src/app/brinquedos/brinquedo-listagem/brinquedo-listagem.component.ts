@@ -57,7 +57,7 @@ export class BrinquedoListagemComponent implements OnInit{
   public adicionarItemAoCarrinho(brinquedo: Brinquedo): void {
     const itemCarrinho: ItemCarrinho = {
       id: 0, // o ID será gerado no backend
-      idCarrinho: 4, // ajuste conforme necessário para obter o carrinho atual
+      idCarrinho: 1, // ajuste conforme necessário para obter o carrinho atual
       brinquedo: brinquedo,
       quantidade: 1
     };

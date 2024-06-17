@@ -33,14 +33,14 @@
           <tbody class="table-group-divider" style="text-align: center; border-color: white;">
              @for (brinquedo of brinquedos; track brinquedo) {
               <tr style="width: 2000px; font-size: 14px;">
-                <td>{{ brinquedo.brinquedo.nome }}</td> 
+                <td>{{ brinquedo.brinquedo.nome }}</td>
                 <td>
                   <div class="col form-group">
                     <input style="color: #6aaeed;border-color: white; width: 80px;" type="number" class="form-control" name="valorMaximo">
                   </div>
                 </td>
                 <td>
-                      <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 14px; height: 18px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>
+                      <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;" (click)="removerItem(brinquedo)"><img style="width: 14px; height: 18px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>
               </td>
               </tr>
               }

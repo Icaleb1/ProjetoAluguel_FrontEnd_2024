@@ -13,7 +13,11 @@ export class ItemCarrinhosService {
   private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/itemCarrinho';
 
   public adicionarAoCarrinho(itemCarrinho: ItemCarrinho): Observable<any>{
-    return this.httpClient.post<any>(this.API, itemCarrinho)
+    return this.httpClient.post<any>(this.API, itemCarrinho);
+  }
+
+  public removerDoCarrinho(idItem: number): Observable<boolean>{
+    return this.httpClient.delete<boolean>(this.API+"/"+idItem);
   }
 
 
