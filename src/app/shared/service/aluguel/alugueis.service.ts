@@ -20,4 +20,13 @@ export class AlugueisService {
     return this.httpClient.get<Aluguel>(this.API+"/"+id);
   }
 
+  public atualizar(aluguel: Aluguel): Observable<any>{
+    return this.httpClient.put<any>(this.API+"/atualizar", aluguel);
+  }
+
+  public removerItem(idAluguel:number, idItem:number): Observable<any>{
+    return this.httpClient.put<any>(this.API+"/remover-item/"+idAluguel+"/"+idItem, null);
+  }
+
+
 }

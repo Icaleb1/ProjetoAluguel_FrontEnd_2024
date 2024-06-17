@@ -2,7 +2,7 @@ import { Endereco } from './endereco';
 import { Frete } from './frete';
 import { Item } from './item';
 import { Usuario } from './usuario';
-export class Aluguel{
+export class  Aluguel{
 
     id: number;
     usuario: Usuario;

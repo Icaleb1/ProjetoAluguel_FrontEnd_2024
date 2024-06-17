@@ -30,6 +30,10 @@ import { EnderecosModule } from './../enderecos/enderecos.module';
           path: 'enderecos',
           loadChildren:() => import('../enderecos/enderecos.module').then(m => m.EnderecosModule)
         },
+        {
+          path: 'fretes',
+          loadChildren:() => import('../fretes/fretes.module').then(m => m.FretesModule)
+        },
       ]
     },
   ];

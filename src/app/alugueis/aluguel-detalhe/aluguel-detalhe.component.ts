@@ -1,3 +1,4 @@
+import { FretesServiceService } from './../../shared/service/frete/fretes-service.service';
 import { Usuario } from './../../shared/model/usuario';
 import { Endereco } from './../../shared/model/endereco';
 import { Component, OnInit } from '@angular/core';
@@ -11,6 +12,8 @@ import { ItemServiceService } from '../../shared/service/item/item.service.servi
 import { Item } from '../../shared/model/item';
 import { AlugueisService } from '../../shared/service/aluguel/alugueis.service';
 import Swal from 'sweetalert2';
+import { Frete } from '../../shared/model/frete';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-aluguel-detalhe',
@@ -19,6 +22,7 @@ import Swal from 'sweetalert2';
 })
 export class AluguelDetalheComponent implements OnInit {
 
+  frete: Frete = new Frete;
   idAluguel: number;
   enderecos: Array<Endereco> = new Array();
   endereco: Endereco = new Endereco;
@@ -33,7 +37,8 @@ export class AluguelDetalheComponent implements OnInit {
               private route: ActivatedRoute,
               private carrinhosService: CarrinhosService,
               private itemService: ItemServiceService,
-              private aluguelService: AlugueisService
+              private aluguelService: AlugueisService,
+              private fretesServiceService: FretesServiceService,
   ) { }
 
 
@@ -106,5 +111,85 @@ export class AluguelDetalheComponent implements OnInit {
     this.router.navigate(['/home/enderecos/detalhe']);
   }
 
+  private cadastrarFrete(): Observable<Frete> {
+    this.frete.id_aluguel = this.idAluguel;
+    return this.fretesServiceService.cadastrarFrete(this.frete);
+  }
+
+  public calcularFrete(): void {
+    if (this.frete.distancia) {
+      const valorGasolina = 5.58;
+      this.frete.valor = this.frete.distancia * valorGasolina;
+    } else {
+      Swal.fire('Erro!', 'Informe a distância para calcular o frete.', 'error');
+    }
+  }
+
+  public atualizarAluguel(): void {
+    if (this.validarCampos()) {
+      this.calcularFrete();
+
+      this.cadastrarFrete().subscribe(
+        (frete) => {
+          this.frete = frete;
+
+          // Após cadastrar o frete, atualiza o aluguel
+          this.aluguelService.atualizar(this.aluguel).subscribe(
+            () => {
+              Swal.fire('Aluguel atualizado com sucesso!', '', 'success');
+            },
+            (erro) => {
+              Swal.fire('Erro ao atualizar aluguel: ' + erro.error.mensagem, '', 'error');
+            }
+          );
+        },
+        (erro) => {
+          Swal.fire('Erro ao cadastrar frete: ' + erro.error.mensagem, '', 'error');
+        }
+      );
+    }
+  }
+
+
+
+  public validarCampos(): boolean {
+    if (!this.aluguel.dataDevolucao || !this.aluguel.idEnderecoDeEntrega || !this.aluguel.dataDevDefinitiva || !this.frete.distancia) {
+      Swal.fire('Erro!', 'Todos os campos devem ser preenchidos!', 'error');
+      return false;
+    }
+
+    const hoje = new Date();
+    const dataDevolucao = new Date(this.aluguel.dataDevolucao);
+    const dataDevDefinitiva = new Date(this.aluguel.dataDevDefinitiva);
+
+    if (dataDevolucao < hoje) {
+      Swal.fire('Erro!', 'Data de devolução não pode ser menor que a data de hoje!', 'error');
+      return false;
+    }
+
+    if (dataDevDefinitiva < hoje) {
+      Swal.fire('Erro!', 'Data de devolução definitiva não pode ser menor que a data de hoje!', 'error');
+      return false;
+    }
+
+    return true;
+  }
+
+  public removerItem(idItem: number): void {
+    this.aluguelService.removerItem(this.idAluguel, idItem).subscribe(
+      () => {
+        Swal.fire('Item removido com sucesso!', '', 'success');
+        this.consultarTodosPorIdAluguel();
+      },
+      (erro) => {
+        Swal.fire('Erro ao remover item: ' + erro.error.mensagem, '', 'error');
+      }
+    );
+  }
+
+
+  // finalizarAluguel(){
+  //   this.cadastrarFrete();
+  // }
 
 }
