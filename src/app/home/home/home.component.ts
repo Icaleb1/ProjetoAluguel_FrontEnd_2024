@@ -1,3 +1,4 @@
+import { CarrinhoEventService } from './../../shared/service/carrinho-event.service';
 import { AlugueisService } from './../../shared/service/aluguel/alugueis.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../shared/model/usuario';
@@ -32,19 +33,24 @@ export class HomeComponent implements OnInit {
              private itemCarrinhoService: ItemCarrinhosService,
              private alugueisService: AlugueisService,
              private enderecoService: EnderecosService,
+             private carrinhoEventService: CarrinhoEventService,
 
   ) { }
 
   ngOnInit(): void {
     const usuarioNoStorage = localStorage.getItem('usuarioAutenticado');
+    if (usuarioNoStorage) {
+      this.usuarioAutenticado = JSON.parse(usuarioNoStorage);
 
-  if (usuarioNoStorage) {
-    this.usuarioAutenticado = JSON.parse(usuarioNoStorage);
+      this.consultarTodosBrinquedosCarrinho(this.usuarioAutenticado.id);
 
-    this.consultarTodosBrinquedosCarrinho(this.usuarioAutenticado.id);
-  } else {
-    console.error('Nenhum usuário autenticado encontrado no armazenamento local');
-  }
+      // Inscrever-se para receber eventos de item adicionado ao carrinho
+      this.carrinhoEventService.itemAdicionadoAoCarrinho.subscribe(() => {
+        this.consultarTodosBrinquedosCarrinho(this.usuarioAutenticado.id);
+      });
+    } else {
+      console.error('Nenhum usuário autenticado encontrado no armazenamento local');
+    }
   }
 
   public cadastrarEndereco(){
@@ -113,7 +119,7 @@ export class HomeComponent implements OnInit {
       itens: [],
       dataAluguel: new Date(),
       dataDevolucao: new Date(),
-      dataDevDefinitiva: new Date(),
+      dataDevDefinitiva: new Date(0),
       valoresAdicionais: 0,
       valorTotal: 0,
       idEnderecoDeEntrega: 0,

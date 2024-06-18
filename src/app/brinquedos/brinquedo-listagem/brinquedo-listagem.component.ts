@@ -9,6 +9,7 @@ import { ItemCarrinho } from '../../shared/model/itemCarrinho';
 import Swal from 'sweetalert2';
 import { Carrinho } from '../../shared/model/carrinho';
 import { Usuario } from '../../shared/model/usuario';
+import { CarrinhoEventService } from '../../shared/service/carrinho-event.service';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class BrinquedoListagemComponent implements OnInit{
               private router: Router,
               private route: ActivatedRoute,
               private carrinhoService: CarrinhosService,
+              private carrinhoEventService: CarrinhoEventService,
   ){}
 
   ngOnInit(): void {
@@ -56,7 +58,7 @@ export class BrinquedoListagemComponent implements OnInit{
     this.seletor = new BrinquedoSeletor();
   }
 
- 
+
 
   private consultarTodosBrinquedos(){
     this.brinquedosService.listarTodos().subscribe(
@@ -103,6 +105,7 @@ export class BrinquedoListagemComponent implements OnInit{
         this.itemCarrinhosService.adicionarAoCarrinho(itemCarrinho).subscribe(
           resultado => {
             console.log('Item adicionado ao carrinho com sucesso!', resultado);
+            this.carrinhoEventService.emitirItemAdicionado();
           },
           erro => {
             console.error('Erro ao adicionar item ao carrinho!', erro);
