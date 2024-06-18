@@ -71,7 +71,12 @@
             <td>R$ {{ brinquedo.valorDiaria}}</td>
             <td>
               <div class="row">
-                  <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;" (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;
+
+                <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;"
+                 (click)="criarItem(brinquedo)">adicionar</button> &nbsp;&nbsp;
+
+                  <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;"
+                  (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;
 
                   <button  (click)="excluir(brinquedo)" class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>&nbsp;&nbsp;
 

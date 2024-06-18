@@ -74,4 +74,8 @@ export class AluguelListagemComponent implements OnInit{
       }
     );
   }
+
+  public voltar(){
+    this.router.navigate(['/home/alugueis'])
+  }
 }

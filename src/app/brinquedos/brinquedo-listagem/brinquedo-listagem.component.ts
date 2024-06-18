@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 import { Carrinho } from '../../shared/model/carrinho';
 import { Usuario } from '../../shared/model/usuario';
 import { CarrinhoEventService } from '../../shared/service/carrinho-event.service';
+import { ItemServiceService } from '../../shared/service/item/item.service.service';
+import { Item } from '../../shared/model/item';
 
 
 @Component({
@@ -34,6 +36,7 @@ export class BrinquedoListagemComponent implements OnInit{
               private route: ActivatedRoute,
               private carrinhoService: CarrinhosService,
               private carrinhoEventService: CarrinhoEventService,
+              private itemService: ItemServiceService,
   ){}
 
   ngOnInit(): void {
@@ -151,4 +154,25 @@ export class BrinquedoListagemComponent implements OnInit{
     });
   }
 
+  public criarItem(brinquedo: Brinquedo): void {
+    const novoItem: Item = {
+      id: 0, // O ID será gerado no backend
+      id_aluguel: 0, // Defina o ID do aluguel, se aplicável
+      brinquedo: brinquedo,
+      disponivel: true
+    };
+
+    this.itemService.criarItem(novoItem).subscribe(
+      resultado => {
+        console.log('Item adicionado com sucesso!', resultado);
+        Swal.fire('Sucesso!', 'Item adicionado com sucesso!', 'success');
+        this.consultarTodosBrinquedos();
+      },
+      erro => {
+        console.error('Erro ao adicionar Item!', erro);
+        Swal.fire('Erro!', 'Erro ao adicionar Item: ' + erro.message, 'error');
+      }
+    );
+
+  }
 }
