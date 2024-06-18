@@ -1,7 +1,3 @@
-<pre>
-  {{seletor|json}}
-</pre>
-
   <div class="container" data-bs-theme="dark" style="width: 75%;">
     <form >
       <div class="card">
@@ -43,7 +39,7 @@
                 class="btn btn-primary col-md-12"
                 (click)="pesquisar()"
                 name="btnPesquisar"
-                >Pesquisar</button>
+                ><strong>Pesquisar</strong></button>
             </div>
             <div class="col-md-3">
               <button
@@ -77,18 +73,17 @@
             <td>R$ {{ brinquedo.valorDiaria}}</td>
             <td>
               <div class="row">
-                  <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;" (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>
-              </div>
+                  <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;" (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;
+                  <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>&nbsp;&nbsp;
+                  <button class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;"><img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar"></button>&nbsp;
+                </div>
           </td>
           </tr>
         }
       </tbody>
     </table>
     <div style="text-align: right;">
-     <button class="btn btn-warning col-md-3" style="width: 171px;"><img src="assets/images/IconMais.png" style="width: 14px;
-      height: 16px;
-      padding-bottom: 3px;" alt="adicionar novo brinquedo">
+     <button class="btn btn-warning col-md-3" style="width: 171px;"><img src="assets/images/IconMais.png" style="width: 18px;height: 20px; padding-bottom: 3px;" alt="adicionar novo brinquedo">
       <strong>Novo Brinquedo</strong></button>
     </div>
   </div>

@@ -7,15 +7,7 @@
         <img src="assets/images/LogoCamax.png" style="border-radius: 75%; width: 125px; height: 125px"  alt="Logo CaMax">
         <br><br>
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler"><button style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#0056b3';" onmouseout="this.style.backgroundColor='#007bff';">
           <strong>Carrinho</strong></button></span>
       </button>
@@ -33,43 +25,33 @@
           <tbody class="table-group-divider" style="text-align: center; border-color: white;">
              @for (brinquedo of brinquedos; track brinquedo) {
               <tr style="width: 2000px; font-size: 14px;">
-                <td>{{ brinquedo.brinquedo.nome }}</td>
+                <td>{{ brinquedo.brinquedo.nome }}</td> 
                 <td>
                   <div class="col form-group">
                     <input style="color: #6aaeed;border-color: white; width: 80px;" type="number" class="form-control" name="valorMaximo">
                   </div>
                 </td>
                 <td>
-                      <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;" (click)="removerItem(brinquedo)"><img style="width: 14px; height: 18px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>
+                      <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 14px; height: 18px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>
               </td>
               </tr>
               }
           </tbody>
           <br>
         </table>
-        <!-- Apenas esboço! -->
-        <div class="container mt-3">
-          <div class="row align-items-end">
-              <div class="col-md-6 form-group">
-                  <label for="enderecos" class="form-label"><strong>Endereços</strong></label>
-                  <select class="form-control border-primary border-1" name="enderecos">
-                      <!-- @for(paisOrigem of paises; track paisOrigem.id){ -->
-                      <option>enderecos</option>
-                      <!--)-->
-                  </select>
-              </div>
-              <div class="col-md-3">
-                  <button class="btn btn-warning" style="width: 100px; height: 40px;"><strong>Confirmar</strong></button>
-              </div>
-          </div>
+        <button style="height: 40px; background-color: #e3c30d; color: #000; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'">
+          <strong>Confirmar</strong></button>
       </div>
-      </div>
-      <ul class="nav-link" style="color: rgb(155, 196, 239);">
+      <ul class="nav-link" style="color: #bda60c;">
         <br>
-        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Brinquedos</strong></a></li>&thinsp;
-        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Endereços</strong></a></li>&thinsp;
-        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Aluguéis</strong></a></li>&thinsp;
-        <li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'"><a style="text-decoration: none; color: white;" href="/brinquedos"><strong>Configurações</strong></a></li>&thinsp;
+        <a style="text-decoration: none; color: white;" href="/brinquedos"><li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'">
+          <strong>Brinquedos</strong></li></a>&thinsp;
+        <a style="text-decoration: none; color: white;" href="/brinquedos"><li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'">
+          <strong>Endereços</strong></li></a>&thinsp;
+        <a style="text-decoration: none; color: white;" href="/brinquedos"><li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'">
+          <strong>Aluguéis</strong></li></a>&thinsp;
+        <a style="text-decoration: none; color: white;" href="/brinquedos/Brinquedo"><li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'">
+          <strong>Adicionar Brinquedos</strong></li></a>&thinsp;
       </ul>
     </div>
   </nav>

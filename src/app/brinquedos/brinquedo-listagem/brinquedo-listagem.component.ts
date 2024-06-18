@@ -13,6 +13,7 @@ import { ItemCarrinho } from '../../shared/model/itemCarrinho';
   templateUrl: './brinquedo-listagem.component.html',
   styleUrl: './brinquedo-listagem.component.scss'
 })
+
 export class BrinquedoListagemComponent implements OnInit{
 
   public brinquedos: Array<Brinquedo> = new Array();
