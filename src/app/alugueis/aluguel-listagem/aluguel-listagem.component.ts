@@ -75,5 +75,3 @@ export class AluguelListagemComponent implements OnInit{
     );
   }
 }
-
-

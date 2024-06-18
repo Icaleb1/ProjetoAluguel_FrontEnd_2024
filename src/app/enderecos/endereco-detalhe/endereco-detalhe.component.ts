@@ -71,16 +71,21 @@ export class EnderecoDetalheComponent implements OnInit {
     return true;
   }
 
-  public cadastrarEndereco(){
+  public cadastrarEndereco() {
     this.endereco.idUsuario = this.usuarioAutenticado.id;
     this.enderecosService.cadastrarEndereco(this.endereco).subscribe(
       (resposta) => {
-        Swal.fire('Endereço cadastrado com Sucesso! ', '', 'success'); this.voltar();
+        Swal.fire('Endereço cadastrado com Sucesso!', '', 'success');
+        this.voltarCadastro(); 
       },
       (erro) => {
-        Swal.fire('Erro ao cadastrar Endereço! ', erro, 'error');
+        Swal.fire('Erro ao cadastrar Endereço!', erro, 'error');
       }
     );
+  }
+
+  private voltarCadastro() {
+    this.router.navigate(['/home/enderecos']); 
   }
 
   public atualizarEndereco(){
@@ -96,6 +101,6 @@ export class EnderecoDetalheComponent implements OnInit {
   }
 
   voltar(){
-    this.router.navigate(['/home/brinquedos']);
+    this.router.navigate(['/home/enderecos']);
   }
 }
