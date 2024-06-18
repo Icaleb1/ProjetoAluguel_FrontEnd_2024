@@ -22,8 +22,7 @@ export class BrinquedosService {
   }
 
   public cadastrarBrinquedo(brinquedo: Brinquedo): Observable<any>{
-    return this.httpClient.post<any>(this.API, Brinquedo)
+    return this.httpClient.post<any>(this.API, brinquedo)
   }
-
 
 }

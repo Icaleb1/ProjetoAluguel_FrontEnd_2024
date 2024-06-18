@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { BrinquedosRoutingModule } from './brinquedos-routing.module';
 import { BrinquedoListagemComponent } from './brinquedo-listagem/brinquedo-listagem.component';
 import { FormsModule } from '@angular/forms';
+import { BrinquedoCadastroComponent } from './brinquedo-cadastro/brinquedo-cadastro.component';
 
 
 @NgModule({
   declarations: [
-    BrinquedoListagemComponent
+    BrinquedoListagemComponent,
+    BrinquedoCadastroComponent
   ],
   imports: [
     CommonModule,
