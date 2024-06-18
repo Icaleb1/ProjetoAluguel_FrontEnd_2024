@@ -73,8 +73,8 @@
             <td>
               <div class="row">
                   <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;" (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;
-                  <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>&nbsp;&nbsp;
-                  <button class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;"><img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar"></button>
+                  <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira" (click)="excluir(brinquedo)"></button>&nbsp;&nbsp;
+                  <button class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;"><img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar" (click)="editar(brinquedo.id)"></button>
                 </div>
           </td>
           </tr>

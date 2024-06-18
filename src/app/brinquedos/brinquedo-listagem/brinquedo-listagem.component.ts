@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BrinquedoSeletor } from '../../shared/model/seletor/brinquedoSeletor';
 import { CarrinhosService } from '../../shared/service/carrinho/carrinhos.service';
 import { ItemCarrinho } from '../../shared/model/itemCarrinho';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -72,4 +73,33 @@ export class BrinquedoListagemComponent implements OnInit{
       }
     );
   }
+
+
+  public editar(idBrinquedoSelecionado: number){
+    this.router.navigate(['/brinquedos/cadastro/', idBrinquedoSelecionado])
+  }
+
+
+  public excluir(brinquedoSelecionado: Brinquedo){
+    Swal.fire({
+      title: 'Deseja realmente excluir esse brinquedo?',
+      text: 'Essa ação não pode ser desfeita!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sim, excluir!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.brinquedosService.excluirBrinquedo(brinquedoSelecionado.id).subscribe(
+          resultado => {
+            this.pesquisar();
+          },
+          erro => {
+            Swal.fire('Erro!', 'Erro ao excluir brinquedo: ' + erro.error.mensagem, 'error');
+          }
+        );
+      }
+    });
+  }
+
 }
