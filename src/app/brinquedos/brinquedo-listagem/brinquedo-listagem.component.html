@@ -2,11 +2,10 @@
     <form >
       <div class="card">
         <div class="card-header text-white bg-primary">
-          <h4>Filtros</h4>
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col-md-6 form-group">
+            <div class="col-md-6 form-group" style="text-align: left;">
               <label for="nomeBrinquedo" class="form-label">Nome do Brinquedo:</label>
               <input
               type="text"
@@ -14,7 +13,7 @@
               name="nomeBrinquedo"
               [(ngModel)]="seletor.nomeBrinquedo">
             </div>
-            <div class="col-md-3 form-group">
+            <div class="col-md-3 form-group" style="text-align: left;">
               <label for="valorMinimo" class="form-label">Valor Mínimo:</label>
               <input
               type="number"
@@ -22,7 +21,7 @@
               name=" valorMinimo"
               [(ngModel)]="seletor.valorMinimo">
             </div>
-            <div class="col-md-3 form-group">
+            <div class="col-md-3 form-group" style="text-align: left;">
               <label for="valorMaximo" class="form-label">Valor Máximo:</label>
               <input
               type="number"
@@ -32,7 +31,7 @@
             </div>
           </div>
           <br>
-          <div class="row">
+          <div class="row" style="text-align: right;">
             <div class="col-md-3">
                 <button
                 type="submit"
@@ -44,7 +43,7 @@
             <div class="col-md-3">
               <button
               type="submit"
-              class="btn btn-warning col-md-12"
+              class="btn btn-warning col-md-"
               (click)="limpar()"
               name="btnPesquisar"
               >Limpar</button>
@@ -83,7 +82,7 @@
       </tbody>
     </table>
     <div style="text-align: right;">
-     <button class="btn btn-warning col-md-3" style="width: 171px;"><img src="assets/images/IconMais.png" style="width: 18px;height: 20px; padding-bottom: 3px;" alt="adicionar novo brinquedo">
+     <button class="btn btn-warning col-md-3" [routerLink]="['/brinquedos/cadastro']" style="width: 171px;"><img src="assets/images/IconMais.png" style="width: 18px;height: 20px; padding-bottom: 3px;" alt="adicionar novo brinquedo">
       <strong>Novo Brinquedo</strong></button>
     </div>
   </div>

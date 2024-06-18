@@ -21,7 +21,9 @@ export class BrinquedosService {
     return this.httpClient.post<Array<Brinquedo>>(this.API+"/filtro",seletor)
   }
 
-
+  public cadastrarBrinquedo(seletor: BrinquedoSeletor): Observable<any>{
+    return this.httpClient.post<any>(this.API, Brinquedo)
+  }
 
 
 }

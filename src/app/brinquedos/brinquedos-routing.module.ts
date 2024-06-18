@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrinquedoListagemComponent } from './brinquedo-listagem/brinquedo-listagem.component';
+import { BrinquedoCadastroComponent } from './brinquedo-cadastro/brinquedo-cadastro.component';
 
 const routes: Routes = [
-  {path: "", component: BrinquedoListagemComponent}
+  {path: "", component: BrinquedoListagemComponent},
+  {path: "cadastro", component: BrinquedoCadastroComponent}
 ];
 
 @NgModule({
