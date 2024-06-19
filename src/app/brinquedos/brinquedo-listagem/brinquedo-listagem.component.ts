@@ -51,7 +51,7 @@ export class BrinquedoListagemComponent implements OnInit{
         this.brinquedos = resultado;
       },
       erro => {
-        console.log('Erro ao buscar todas as pessoas ' + erro);
+        console.log('Erro ao buscar todas as pessoas ' + erro + '!');
       }
     );
   }
@@ -66,10 +66,10 @@ export class BrinquedoListagemComponent implements OnInit{
 
     this.itemCarrinhosService.adicionarAoCarrinho(itemCarrinho).subscribe(
       resultado => {
-        console.log('Item adicionado ao carrinho com sucesso', resultado);
+        console.log('Item adicionado ao carrinho com sucesso!', resultado);
       },
       erro => {
-        console.error('Erro ao adicionar item ao carrinho', erro);
+        console.error('Erro ao adicionar item ao carrinho!', erro);
       }
     );
   }

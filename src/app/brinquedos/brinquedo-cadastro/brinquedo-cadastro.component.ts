@@ -65,11 +65,11 @@ export class BrinquedoCadastroComponent implements OnInit{
 public atualizarBrinquedo(){
   this.brinquedoService.atualizar(this.brinquedo).subscribe(
     (resposta) => {
-      Swal.fire('Brinquedo atualizada com sucesso!', '', 'success');
+      Swal.fire('Brinquedo editado com sucesso!', '', 'success');
       this.voltar();
     },
     (erro) => {
-      Swal.fire('Erro ao atualizar a brinquedo: ' + erro.error.mensagem, 'error');
+      Swal.fire('Erro ao editar brinquedo: ' + erro.error.mensagem, 'error');
     }
   );
 }
