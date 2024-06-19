@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   private getUsuarioId(): number {
     // Implemente a lógica para obter o id do usuário
     // Pode ser de um serviço de autenticação, ou de outra fonte
-    return 11; // Exemplo: substitua isso pela lógica real
+    return 1; // Exemplo: substitua isso pela lógica real
   }
 
 
