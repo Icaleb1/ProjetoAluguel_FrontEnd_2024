@@ -55,9 +55,14 @@ export class BrinquedoCadastroComponent implements OnInit{
 
   public validarCampos(): boolean {
     if (!this.brinquedo.nome || !this.brinquedo.descricao || !this.brinquedo.valorDiaria) {
-      Swal.fire('Erro', 'Todos os campos devem ser preenchidos!', 'error');
+      Swal.fire('Erro!', 'Todos os campos devem ser preenchidos!', 'error');
       return false;
     }
+    if (this.brinquedo.valorDiaria < 0){
+      Swal.fire('Erro!', 'Valor da diária não pode ser menor que zero!', 'error');
+      return false
+    }
+
     return true;
   }
 

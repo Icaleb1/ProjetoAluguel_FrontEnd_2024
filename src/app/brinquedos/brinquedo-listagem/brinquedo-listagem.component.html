@@ -6,27 +6,27 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-6 form-group" style="text-align: left;">
-              <label for="nomeBrinquedo" class="form-label">Nome do Brinquedo:</label>
+              <label for="nomeBrinquedo" class="form-label"><strong>Nome do Brinquedo:</strong></label>
               <input
               type="text"
               class="form-control"
-              name="nomeBrinquedo"
+              name="nomeBrinquedo" style="border-color: white;"
               [(ngModel)]="seletor.nomeBrinquedo">
             </div>
             <div class="col-md-3 form-group" style="text-align: left;">
-              <label for="valorMinimo" class="form-label">Valor Mínimo:</label>
+              <label for="valorMinimo" class="form-label" ><strong>Valor Mínimo:</strong></label>
               <input
               type="number"
               class="form-control"
-              name=" valorMinimo"
+              name=" valorMinimo" style="border-color: white;"
               [(ngModel)]="seletor.valorMinimo">
             </div>
             <div class="col-md-3 form-group" style="text-align: left;">
-              <label for="valorMaximo" class="form-label">Valor Máximo:</label>
+              <label for="valorMaximo" class="form-label"><strong>Valor Máximo:</strong></label>
               <input
               type="number"
               class="form-control"
-              name="valorMaximo"
+              name="valorMaximo" style="border-color: white;"
               [(ngModel)]="seletor.valorMaximo">
             </div>
           </div>
@@ -65,7 +65,7 @@
       </thead>
       <tbody class="table-group-divider border" style="text-align: center; border-color: white;">
         @for (brinquedo of brinquedos; track brinquedo){
-          <tr>
+          <tr class="sobrePor">
             <td>{{ brinquedo.nome }}</td>
             <td>{{ brinquedo.descricao }}</td>
             <td>{{ brinquedo.quantEstoque }}</td>
@@ -73,7 +73,9 @@
             <td>
               <div class="row">
                   <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;" (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;
+                  
                   <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira" (click)="excluir(brinquedo)"></button>&nbsp;&nbsp;
+
                   <button class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;"><img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar" (click)="editar(brinquedo.id)"></button>
                 </div>
           </td>

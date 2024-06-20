@@ -46,6 +46,11 @@ export class BrinquedoListagemComponent implements OnInit{
   }
 
   public pesquisar(){
+    if(this.seletor.valorMinimo > this.seletor.valorMaximo){
+      Swal.fire('Erro!', 'Valor minimo não pode ser maior que valor máximo!', 'error');
+      return;
+    }
+
     this.brinquedosService.consultarComSeletor(this.seletor).subscribe(
       resultado => {
         this.brinquedos = resultado;
@@ -82,7 +87,7 @@ export class BrinquedoListagemComponent implements OnInit{
 
   public excluir(brinquedoSelecionado: Brinquedo){
     if (brinquedoSelecionado.quantEstoque > 0) {
-      Swal.fire('Não é possível excluir', 'Este brinquedo possui itens em estoque e não pode ser excluído.', 'error');
+      Swal.fire('Não é possível excluir!', 'Este brinquedo possuí itens em estoque e não pode ser excluído.', 'error');
       return;
     }
 

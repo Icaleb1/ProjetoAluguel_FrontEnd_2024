@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
 
   public removerItem(itemSelecionado: ItemCarrinho) {
     Swal.fire({
-      title: 'Deseja realmente excluir esse item do carrinho?',
+      title: 'Deseja realmente remover esse item do carrinho?',
       text: 'Essa ação não pode ser desfeita!',
       icon: 'warning',
       showCancelButton: true,
