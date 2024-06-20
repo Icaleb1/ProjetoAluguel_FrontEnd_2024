@@ -44,11 +44,21 @@ export class BrinquedoCadastroComponent implements OnInit{
 
 
   public salvar(): void{
-    if(this.idBrinquedo){
-      this.atualizarBrinquedo();
-    }else{
-      this.cadastrarBrinquedo();
+    if(this.validarCampos()){
+      if(this.idBrinquedo){
+        this.atualizarBrinquedo();
+      }else{
+        this.cadastrarBrinquedo();
+      }
     }
+  }
+
+  public validarCampos(): boolean {
+    if (!this.brinquedo.nome || !this.brinquedo.descricao || !this.brinquedo.valorDiaria) {
+      Swal.fire('Erro', 'Todos os campos devem ser preenchidos!', 'error');
+      return false;
+    }
+    return true;
   }
 
   public cadastrarBrinquedo(){

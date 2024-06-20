@@ -81,6 +81,11 @@ export class BrinquedoListagemComponent implements OnInit{
 
 
   public excluir(brinquedoSelecionado: Brinquedo){
+    if (brinquedoSelecionado.quantEstoque > 0) {
+      Swal.fire('Não é possível excluir', 'Este brinquedo possui itens em estoque e não pode ser excluído.', 'error');
+      return;
+    }
+
     Swal.fire({
       title: 'Deseja realmente excluir esse brinquedo?',
       text: 'Essa ação não pode ser desfeita!',
