@@ -58,7 +58,8 @@
         <tr>
           <th>Nome</th>
           <th style="width: 600px;">Descrição</th>
-          <th >Estoque</th>
+          <th>Estoque total</th>
+          <th>Itens Disponíveis</th>
           <th>Valor da diária</th>
           <th class="col-md-2">Ações</th>
         </tr>
@@ -68,12 +69,13 @@
           <tr class="sobrePor">
             <td>{{ brinquedo.nome }}</td>
             <td>{{ brinquedo.descricao }}</td>
-            <td>{{ brinquedo.quantEstoque }}</td>
+            <td>{{ brinquedo.estoqueTotal }}</td>
+            <td>{{ brinquedo.estoqueDisponivel}}</td>
             <td>R$ {{ brinquedo.valorDiaria}}</td>
             <td>
               <div class="row">
                   <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;" (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;
-                  
+
                   <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira" (click)="excluir(brinquedo)"></button>&nbsp;&nbsp;
 
                   <button class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;"><img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar" (click)="editar(brinquedo.id)"></button>
