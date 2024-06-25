@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class BrinquedoCadastroComponent implements OnInit{
 
   public brinquedo: Brinquedo = new Brinquedo();
+  public idBrinquedo: number;
 
   constructor(private brinquedoService: BrinquedosService,
     private router:Router,
@@ -20,9 +21,50 @@ export class BrinquedoCadastroComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.idBrinquedo = params['id'];
+      if(this.idBrinquedo){
+        this.buscarBrinquedo();
+      }
+    });
 
   }
 
+
+  public buscarBrinquedo(): void{
+    this.brinquedoService.consultarPorId(this.idBrinquedo).subscribe(
+      (brinquedo) => {
+        this.brinquedo = brinquedo;
+      },
+      (erro) => {
+        Swal.fire('Erro ao buscar brinquedo ', erro, 'error');
+      }
+    );
+  }
+
+
+  public salvar(): void{
+    if(this.validarCampos()){
+      if(this.idBrinquedo){
+        this.atualizarBrinquedo();
+      }else{
+        this.cadastrarBrinquedo();
+      }
+    }
+  }
+
+  public validarCampos(): boolean {
+    if (!this.brinquedo.nome || !this.brinquedo.descricao || !this.brinquedo.valorDiaria) {
+      Swal.fire('Erro!', 'Todos os campos devem ser preenchidos!', 'error');
+      return false;
+    }
+    if (this.brinquedo.valorDiaria < 0){
+      Swal.fire('Erro!', 'Valor da diária não pode ser menor que zero!', 'error');
+      return false
+    }
+
+    return true;
+  }
 
   public cadastrarBrinquedo(){
     this.brinquedoService.cadastrarBrinquedo(this.brinquedo).subscribe(
@@ -35,6 +77,17 @@ export class BrinquedoCadastroComponent implements OnInit{
   );
 }
 
+public atualizarBrinquedo(){
+  this.brinquedoService.atualizar(this.brinquedo).subscribe(
+    (resposta) => {
+      Swal.fire('Brinquedo editado com sucesso!', '', 'success');
+      this.voltar();
+    },
+    (erro) => {
+      Swal.fire('Erro ao editar brinquedo: ' + erro.error.mensagem, 'error');
+    }
+  );
+}
 
 voltar() {
   this.router.navigate(['/brinquedos']);

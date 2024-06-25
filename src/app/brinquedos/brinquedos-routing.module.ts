@@ -5,7 +5,8 @@ import { BrinquedoCadastroComponent } from './brinquedo-cadastro/brinquedo-cadas
 
 const routes: Routes = [
   {path: "", component: BrinquedoListagemComponent},
-  {path: "cadastro", component: BrinquedoCadastroComponent}
+  {path: "cadastro", component: BrinquedoCadastroComponent},
+  { path: 'cadastro/:id', component: BrinquedoCadastroComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,11 @@
+img[src="assets/images/LogoCamax.png"]:hover {
+  transform: scale(1.3);
+  transition: transform 0.3s ease-in-out;
+}
+.sobrePor {
+  text-decoration: none;
+ }
+ .sobrePor:hover {
+   transform: scale(1.01);
+   transition: transform 0.3s ease-in-out;
+ }

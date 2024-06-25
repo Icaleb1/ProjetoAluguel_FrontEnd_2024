@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BrinquedoSeletor } from '../../shared/model/seletor/brinquedoSeletor';
 import { CarrinhosService } from '../../shared/service/carrinho/carrinhos.service';
 import { ItemCarrinho } from '../../shared/model/itemCarrinho';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -45,12 +46,17 @@ export class BrinquedoListagemComponent implements OnInit{
   }
 
   public pesquisar(){
+    if(this.seletor.valorMinimo > this.seletor.valorMaximo){
+      Swal.fire('Erro!', 'Valor minimo não pode ser maior que valor máximo!', 'error');
+      return;
+    }
+
     this.brinquedosService.consultarComSeletor(this.seletor).subscribe(
       resultado => {
         this.brinquedos = resultado;
       },
       erro => {
-        console.log('Erro ao buscar todas as pessoas ' + erro);
+        console.log('Erro ao buscar todas as pessoas ' + erro + '!');
       }
     );
   }
@@ -65,11 +71,45 @@ export class BrinquedoListagemComponent implements OnInit{
 
     this.itemCarrinhosService.adicionarAoCarrinho(itemCarrinho).subscribe(
       resultado => {
-        console.log('Item adicionado ao carrinho com sucesso', resultado);
+        console.log('Item adicionado ao carrinho com sucesso!', resultado);
       },
       erro => {
-        console.error('Erro ao adicionar item ao carrinho', erro);
+        console.error('Erro ao adicionar item ao carrinho!', erro);
       }
     );
   }
+
+
+  public editar(idBrinquedoSelecionado: number){
+    this.router.navigate(['/brinquedos/cadastro/', idBrinquedoSelecionado])
+  }
+
+
+  public excluir(brinquedoSelecionado: Brinquedo){
+    if (brinquedoSelecionado.quantEstoque > 0) {
+      Swal.fire('Não é possível excluir!', 'Este brinquedo possuí itens em estoque e não pode ser excluído.', 'error');
+      return;
+    }
+
+    Swal.fire({
+      title: 'Deseja realmente excluir esse brinquedo?',
+      text: 'Essa ação não pode ser desfeita!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sim, excluir!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.brinquedosService.excluirBrinquedo(brinquedoSelecionado.id).subscribe(
+          resultado => {
+            this.pesquisar();
+          },
+          erro => {
+            Swal.fire('Erro!', 'Erro ao excluir brinquedo: ' + erro.error.mensagem, 'error');
+          }
+        );
+      }
+    });
+  }
+
 }
