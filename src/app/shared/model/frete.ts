@@ -1,3 +1,4 @@
+
 import { Endereco } from "./endereco";
 
 export class Frete {
