@@ -14,7 +14,18 @@
               <input type="date" style="color: #6aaeed;" class="form-control" name="nome">
             </div>
             <div class="form-group col-md-3" style="text-align: left;">
-              <label for="valorDiaria"><strong>Endereço</strong></label>
+              <label for="enderecoDeEntrega"><strong>Endereço</strong></label>
+
+              <select 
+              class="form-control"
+              name="enderecoDeEntrega"
+              [(ngModel)]="aluguel.enderecoDeEntrega"
+              [compareWith]="compareById"
+            >
+              @for(endereco of enderecos; track endereco.id){
+              <option [ngValue]="endereco">{{ endereco.nome }}</option>
+              }
+            </select>
               <!-- Array dos endereços -->
             </div>
 

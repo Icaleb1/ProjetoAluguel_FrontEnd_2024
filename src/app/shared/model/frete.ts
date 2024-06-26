@@ -6,5 +6,4 @@ export class Frete {
   id: number;
   valor: number;
   distancia: number;
-  enderecosParaEntrega: Array<Endereco>;
 }

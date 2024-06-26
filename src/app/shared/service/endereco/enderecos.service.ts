@@ -12,8 +12,13 @@ export class EnderecosService {
 
   private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/endereco';
 
-  public cadastrarUsuario(endereco: Endereco): Observable<any>{
+  public cadastrarEndereco(endereco: Endereco): Observable<any>{
     return this.httpClient.post<any>(this.API, endereco)
   }
+
+  public consultarEnderecosPorIdUsuario(idUsuario:number): Observable<Endereco[]>{
+    return this.httpClient.get<Endereco[]>(this.API+"/todos/"+idUsuario);
+  }
+
 
 }
