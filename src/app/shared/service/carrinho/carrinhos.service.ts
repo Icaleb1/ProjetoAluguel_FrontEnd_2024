@@ -1,12 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Carrinho } from '../../model/carrinho';
+import { ItemCarrinho } from '../../model/itemCarrinho';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarrinhosService {
+
+  private itensCarrinhoSource = new BehaviorSubject<Array<ItemCarrinho>>([]);
+  itensCarrinho$ = this.itensCarrinhoSource.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -14,6 +18,11 @@ export class CarrinhosService {
 
     public consultarCarrinhoPorIdUsuario(idUsuario:number): Observable<Carrinho>{
       return this.httpClient.get<Carrinho>(this.API+"/"+idUsuario);
+    }
+
+    // Método para definir o carrinho localmente
+    setItensCarrinho(itens: Array<ItemCarrinho>) {
+      this.itensCarrinhoSource.next(itens);
     }
 
 }

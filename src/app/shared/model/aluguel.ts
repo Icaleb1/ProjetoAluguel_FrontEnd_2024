@@ -4,14 +4,14 @@ import { Item } from './item';
 import { Usuario } from './usuario';
 export class Aluguel{
 
-  id: number;
-	usuario: Usuario;
-	itens: Array<Item>;
-	dataAluguel: Date;
-	dataDevolucao: Date;
-	dataDevDefinitiva: Date;
-  valoresAdicionais: number;
-	valorTotal: number;
-  enderecoDeEntrega: Endereco;
-	frete: Frete;
-}
+    id: number;
+    usuario: Usuario;
+    itens: Array<Item>;
+    dataAluguel: Date;
+    dataDevolucao: Date;
+    dataDevDefinitiva: Date;
+    valoresAdicionais: number;
+    valorTotal: number;
+    enderecoDeEntrega: Endereco;
+    frete: Frete;
+  }

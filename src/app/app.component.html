@@ -4,11 +4,11 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <br>
-        <img src="assets/images/LogoCamax.png" style="border-radius: 75%; width: 125px; height: 125px"  alt="Logo CaMax">
+        <img class="sobreLogoCamax" src="assets/images/LogoCamax.png" style="border-radius: 75%; width: 125px; height: 125px"  alt="Logo CaMax">
         <br><br>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler"><button style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#0056b3';" onmouseout="this.style.backgroundColor='#007bff';">
+        <span class="navbar-toggler" ><button style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#0056b3';" onmouseout="this.style.backgroundColor='#007bff';">
           <strong>Carrinho</strong></button></span>
       </button>
       <div id="navbarSupportedContent" class="collapse navbar-collapse">
@@ -39,8 +39,8 @@
           </tbody>
           <br>
         </table>
-        <a href="/alugueis/alugar"><button style="height: 40px; background-color: #e3c30d; color: #000; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" >
-          <strong>Confirmar</strong></button></a>
+        <button style="height: 40px; background-color: #e3c30d; color: #000; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" (click)="confirmar()">
+          <strong>Confirmar</strong></button>
       </div>
       <ul class="nav-link" style="color: #bda60c;">
         <br>
@@ -50,8 +50,8 @@
           <strong>Endereços</strong></li></a>&thinsp;
         <a style="text-decoration: none; color: white;" href="/brinquedos"><li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'">
           <strong>Aluguéis</strong></li></a>&thinsp;
-        <a style="text-decoration: none; color: white;" href="/brinquedos/cadastro"><li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'">
-          <strong>Adicionar Brinquedos</strong></li></a>&thinsp;
+        <a style="text-decoration: none; color: white;" href="/usuarios/cadastroUsuario"><li style="height: 30px; align-items: center; justify-content: center;" onmouseover="this.style.backgroundColor='rgb(155, 196, 239)';" onmouseout="this.style.backgroundColor='#2b3035'">
+          <strong>Adicionar Usuário</strong></li></a>&thinsp;
       </ul>
     </div>
   </nav>

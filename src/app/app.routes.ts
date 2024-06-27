@@ -10,5 +10,10 @@ export const routes: Routes = [
     path: 'alugueis',
     loadChildren: ()=>
       import('./alugueis/alugueis.module').then((m) => m.AlugueisModule),
+  },
+  {
+    path: 'usuarios',
+    loadChildren: ()=>
+      import('./usuarios/usuarios.module').then((m) => m.UsuariosModule),
   }
 ];

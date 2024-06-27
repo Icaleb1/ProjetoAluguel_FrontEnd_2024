@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class AppComponent implements OnInit {
 
+  carrinho: Carrinho;
   itens: ItemCarrinho[] = [];
   brinquedos: ItemCarrinho[] = [];
 
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit {
   atualizarCarrinho = new EventEmitter();
 
   constructor(private carrinhoService: CarrinhosService,
-              private itemCarrinhoService: ItemCarrinhosService
+              private itemCarrinhoService: ItemCarrinhosService,
+              private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -74,5 +76,10 @@ export class AppComponent implements OnInit {
   private pesquisar(): void {
     const idUsuario = this.getUsuarioId();
     this.consultarTodosBrinquedosCarrinho(idUsuario);
+  }
+
+  public confirmar(){
+    this.carrinhoService.setItensCarrinho(this.itens)
+    this.router.navigate(['/alugueis/alugar']);
   }
 }
