@@ -1,39 +1,55 @@
-import { ItemCarrinhosService } from './shared/service/item-carrinho/item-carrinhos.service';
-import { Carrinho } from './shared/model/carrinho';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
-import { CarrinhosService } from './shared/service/carrinho/carrinhos.service';
-import { ItemCarrinho } from './shared/model/itemCarrinho';
+import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../shared/model/usuario';
+import { Router } from '@angular/router';
+import { Carrinho } from '../../shared/model/carrinho';
 import Swal from 'sweetalert2';
+import { ItemCarrinho } from '../../shared/model/itemCarrinho';
+import { CarrinhosService } from '../../shared/service/carrinho/carrinhos.service';
+import { ItemCarrinhosService } from '../../shared/service/item-carrinho/item-carrinhos.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
-export class AppComponent implements OnInit {
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
+export class HomeComponent implements OnInit {
 
+  public usuarioAutenticado: Usuario;
+  public ehAdministrador: boolean = false;
   carrinho: Carrinho;
   itens: ItemCarrinho[] = [];
   brinquedos: ItemCarrinho[] = [];
 
-  @Output()
-  atualizarCarrinho = new EventEmitter();
+  constructor(private router: Router,
+             private carrinhoService: CarrinhosService,
+             private itemCarrinhoService: ItemCarrinhosService,
 
-  constructor(private carrinhoService: CarrinhosService,
-              private itemCarrinhoService: ItemCarrinhosService,
-              private router: Router
   ) { }
 
   ngOnInit(): void {
+    let usuarioNoStorage = localStorage.getItem('usuarioAutenticado');
+
+    if(usuarioNoStorage){
+      this.usuarioAutenticado = JSON.parse(usuarioNoStorage);
+      this.ehAdministrador = this.usuarioAutenticado?.administrador == true;
+
+      if(this.ehAdministrador){
+        this.router.navigate(['/home/brinquedos']);
+
+      }
+    } else {
+      this.router.navigate(['/login']);
+    }
+
     const idUsuario = this.getUsuarioId(); // ajuste para obter o idUsuario de forma adequada
-    this.consultarTodosBrinquedosCarrinho(idUsuario);
+    //this.consultarTodosBrinquedosCarrinho(idUsuario);
   }
+
+  logout(){
+    localStorage.removeItem('usuarioAutenticado');
+    this.router.navigate(['/login']);
+  }
+
 
   private consultarTodosBrinquedosCarrinho(idUsuario: number): void {
     this.carrinhoService.consultarCarrinhoPorIdUsuario(idUsuario).subscribe(
@@ -85,4 +101,6 @@ export class AppComponent implements OnInit {
     this.carrinhoService.setItensCarrinho(this.itens)
     this.router.navigate(['/alugueis/alugar']);
   }
+
+
 }
