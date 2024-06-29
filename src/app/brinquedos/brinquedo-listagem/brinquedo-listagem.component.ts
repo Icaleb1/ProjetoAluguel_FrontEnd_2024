@@ -28,7 +28,6 @@ export class BrinquedoListagemComponent implements OnInit{
 
   ngOnInit(): void {
     this.consultarTodosBrinquedos();
-
   }
   public limpar(){
     this.seletor = new BrinquedoSeletor();
@@ -56,7 +55,7 @@ export class BrinquedoListagemComponent implements OnInit{
         this.brinquedos = resultado;
       },
       erro => {
-        console.log('Erro ao buscar todas as pessoas ' + erro + '!');
+        console.log('Erro ao buscar todas os brinquedos ' + erro + '!');
       }
     );
   }

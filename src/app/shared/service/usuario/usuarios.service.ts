@@ -16,4 +16,15 @@ export class UsuariosService {
     return this.httpClient.post<any>(this.API, usuario)
   }
 
+
+  public consultarPorId(id:number): Observable<Usuario>{
+    return this.httpClient.get<Usuario>(this.API+"/"+id);
+  }
+
+  public atualizar(usuario: Usuario): Observable<any>{
+    return this.httpClient.put<any>(this.API+"/atualizar", usuario)
+  }
+
+
+
 }

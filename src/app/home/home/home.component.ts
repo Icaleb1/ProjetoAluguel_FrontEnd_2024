@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    const idUsuario = this.getUsuarioId(); // ajuste para obter o idUsuario de forma adequada
+    //const idUsuario = this.getUsuarioId(); // ajuste para obter o idUsuario de forma adequada
     //this.consultarTodosBrinquedosCarrinho(idUsuario);
   }
 

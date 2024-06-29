@@ -31,8 +31,8 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const idUsuario = this.getUsuarioId(); // ajuste para obter o idUsuario de forma adequada
-    this.consultarTodosBrinquedosCarrinho(idUsuario);
+    //const idUsuario = this.getUsuarioId(); // ajuste para obter o idUsuario de forma adequada
+   // this.consultarTodosBrinquedosCarrinho(idUsuario);
   }
 
   private consultarTodosBrinquedosCarrinho(idUsuario: number): void {

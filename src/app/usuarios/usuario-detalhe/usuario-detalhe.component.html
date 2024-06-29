@@ -1,3 +1,4 @@
+
 <div class="container" data-bs-theme="dark" style="width: 25%;">
     <div class="card border-3" style="border-color: #6a6767;">
       <br>
@@ -10,43 +11,43 @@
 
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
-                  <label for="descricao"><strong>Nome</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="descricao">
+                  <label for="nome"><strong>Nome</strong></label>
+                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="nome" [(ngModel)]="usuario.nome">
                 </div>
               </div>
 
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
-                  <label for="descricao"><strong>CPF</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="descricao">
+                  <label for="cpf"><strong>CPF</strong></label>
+                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="cpf" [(ngModel)]="usuario.cpf">
                 </div>
               </div>
 
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
-                  <label for="descricao"><strong>E-mail</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="descricao">
+                  <label for="email"><strong>E-mail</strong></label>
+                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="email" [(ngModel)]="usuario.email">
                 </div>
               </div>
 
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
-                  <label for="descricao"><strong>Data de Nascimento</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="descricao">
+                  <label for="data_nascimento"><strong>Data de Nascimento</strong></label>
+                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="data_nascimento"  [(ngModel)]="usuario.data_nascimento">
                 </div>
               </div>
 
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
-                  <label for="descricao"><strong>Telefone</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="descricao">
+                  <label for="telefone"><strong>Telefone</strong></label>
+                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="telefone" [(ngModel)]="usuario.telefone">
                 </div>
               </div>
 
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
-                  <label for="descricao"><strong>Senha</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="descricao">
+                  <label for="senha"><strong>Senha</strong></label>
+                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="senha" [(ngModel)]="usuario.senha">
                 </div>
               </div>
 
@@ -64,12 +65,12 @@
                 <div class="row" style="justify-content: space-evenly">
                   <div class="form-group col-md-6">
                     <label>&nbsp;</label>
-                    <button type="submit" class="form-control btn btn-primary"><i class="bi bi-check">
+                    <button type="submit" class="form-control btn btn-primary" (click)="salvar()"><i class="bi bi-check" (click)="salvar()">
                       </i><strong>Cadastrar</strong></button>
                   </div>
                   <div class="form-group col-md-6">
                     <label>&nbsp;</label>
-                    <button type="submit" class="form-control btn btn-warning"><strong>Voltar</strong></button>
+                    <button type="submit" class="form-control btn btn-warning"  (click)="voltar()"><strong>Voltar</strong></button>
                   </div>
                 </div>
                 </div>

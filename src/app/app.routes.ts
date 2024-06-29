@@ -10,4 +10,12 @@ export const routes: Routes = [
     path: 'login',
     loadChildren:() => import('./login/login.module').then(m => m.LoginModule),
   },
+  {
+    path: 'usuarios',
+    loadChildren:() => import('./usuarios/usuarios.module').then(m => m.UsuariosModule)
+  },
+  {
+    path: 'brinquedos',
+    loadChildren:() => import('./brinquedos/brinquedos.module').then(m => m.BrinquedosModule)
+  },
 ];

@@ -11,7 +11,7 @@ export class BrinquedosService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/brinquedo';
+  private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/restrito/brinquedo';
 
   public listarTodos(): Observable<Array<Brinquedo>>{
     return this.httpClient.get<Array<Brinquedo>>(this.API+"/todos");

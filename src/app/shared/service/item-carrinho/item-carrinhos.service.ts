@@ -10,7 +10,7 @@ export class ItemCarrinhosService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/itemCarrinho';
+  private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/restrito/itemCarrinho';
 
   public adicionarAoCarrinho(itemCarrinho: ItemCarrinho): Observable<any>{
     return this.httpClient.post<any>(this.API, itemCarrinho);

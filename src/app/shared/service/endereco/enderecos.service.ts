@@ -10,7 +10,7 @@ export class EnderecosService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/endereco';
+  private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/restrito/endereco';
 
   public cadastrarEndereco(endereco: Endereco): Observable<any>{
     return this.httpClient.post<any>(this.API, endereco)

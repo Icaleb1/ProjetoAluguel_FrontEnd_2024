@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { UsuarioDTO } from '../../shared/model/usuario.dto';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginServiceService } from '../../shared/service/login/login-service.service';
 import { Usuario } from '../../shared/model/usuario';
 import Swal from 'sweetalert2';
@@ -15,8 +15,11 @@ export class LoginComponent {
 
   public dto: UsuarioDTO = new UsuarioDTO();
 
-  constructor(private LoginServiceService: LoginServiceService,
-              private router: Router){
+  constructor(
+              private LoginServiceService: LoginServiceService,
+              private router: Router,
+              private route: ActivatedRoute
+            ){
 
   }
 
@@ -34,7 +37,7 @@ export class LoginComponent {
   }
 
   public cadastro(){
-    this.router.navigate(['usuarios/cadastroUsuario']);
+    this.router.navigate(['/usuarios/cadastroUsuario']);
   }
 
 }
