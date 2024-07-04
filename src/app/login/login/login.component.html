@@ -1,5 +1,5 @@
 <body style="background-image: linear-gradient(to right, #6aaeed, #3561ae)"></body>
-<div class="container-fluid g-5">
+<div class="container-fluid g-5" data-bs-theme="dark">
   <br><br><br><br>
   <div class="row text-center p-2 align-items-center justify-content-center">
     <div style="display: flex; justify-content: center; align-items: center; width: 468px; height: 406px; text-align: center; margin-right: 70px;">
@@ -28,7 +28,6 @@
               <a href="/usuarios/cadastroUsuario" class="text-primary">Esqueci minha senha</a>
             </div>
             <div class="text-center">
-              
               <button type="button" class="btn btn-primary col-md-4" (click)="realizarLogin()" [disabled]="!ngForm.valid" >
                 <strong>Entrar</strong>
               </button>

@@ -27,35 +27,28 @@
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
                   <label for="email"><strong>E-mail</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="email" [(ngModel)]="usuario.email">
+                  <input type="email"style="color: #6aaeed; border-color: white;" class="form-control" name="email" [(ngModel)]="usuario.email">
                 </div>
               </div>
 
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
                   <label for="data_nascimento"><strong>Data de Nascimento</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="data_nascimento"  [(ngModel)]="usuario.data_nascimento">
+                  <input type="date"style="color: #6aaeed; border-color: white;" class="form-control" name="data_nascimento"  [(ngModel)]="usuario.data_nascimento">
                 </div>
               </div>
 
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
                   <label for="telefone"><strong>Telefone</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="telefone" [(ngModel)]="usuario.telefone">
+                  <input type="tel"style="color: #6aaeed; border-color: white;" class="form-control" name="telefone" [(ngModel)]="usuario.telefone">
                 </div>
               </div>
 
               <div class="row md-4">
                 <div class="form-group col-md-12" style="text-align: left;">
                   <label for="senha"><strong>Senha</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="senha" [(ngModel)]="usuario.senha">
-                </div>
-              </div>
-
-              <div class="row md-4">
-                <div class="form-group col-md-12" style="text-align: left;">
-                  <label for="descricao"><strong>Confirmar Senha</strong></label>
-                  <input type="text"style="color: #6aaeed; border-color: white;" class="form-control" name="descricao">
+                  <input type="password"style="color: #6aaeed; border-color: white;" class="form-control" name="senha" [(ngModel)]="usuario.senha">
                 </div>
               </div>
                 <div class="row" style="justify-content: space-evenly">

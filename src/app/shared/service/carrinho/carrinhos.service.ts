@@ -20,9 +20,18 @@ export class CarrinhosService {
       return this.httpClient.get<Carrinho>(this.API+"/por-usuario/"+idUsuario);
     }
 
-    // Método para definir o carrinho localmente
+
     setItensCarrinho(itens: Array<ItemCarrinho>) {
       this.itensCarrinhoSource.next(itens);
     }
+
+    public adicionarItensAoAluguel(aluguelId: number, itensCarrinho: Array<ItemCarrinho>): Observable<boolean> {
+      return this.httpClient.put<boolean>(`${this.API}/adicao-aluguel/${aluguelId}`, itensCarrinho);
+    }
+
+    public limparCarrinho(idCarrinho: number): Observable<boolean>{
+      return this.httpClient.delete<boolean>(this.API+"/"+idCarrinho);
+    }
+
 
 }

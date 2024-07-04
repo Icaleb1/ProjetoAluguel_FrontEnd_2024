@@ -9,13 +9,16 @@ export class RequestInterceptor implements HttpInterceptor {
   constructor(private loginService: LoginServiceService, private router: Router) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const usuarioAutenticado = localStorage.getItem('usuarioAutenticado');
     let authReq = req;
 
-    if (usuarioAutenticado) {
-      authReq = req.clone({
-        setHeaders: { idSessao: JSON.parse(usuarioAutenticado).idSessao }
-      });
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const usuarioAutenticado = localStorage.getItem('usuarioAutenticado');
+      if (usuarioAutenticado) {
+        const usuario = JSON.parse(usuarioAutenticado);
+        authReq = req.clone({
+          setHeaders: { idSessao: usuario.idSessao }
+        });
+      }
     }
 
     return next.handle(authReq).pipe(

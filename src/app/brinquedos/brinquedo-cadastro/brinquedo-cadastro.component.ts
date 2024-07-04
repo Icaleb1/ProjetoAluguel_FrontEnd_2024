@@ -90,7 +90,7 @@ public atualizarBrinquedo(){
 }
 
 voltar() {
-  this.router.navigate(['/brinquedos']);
+  this.router.navigate(['/home/brinquedos']);
 }
 
 

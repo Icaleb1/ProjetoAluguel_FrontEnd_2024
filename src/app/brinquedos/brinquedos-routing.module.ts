@@ -4,8 +4,8 @@ import { BrinquedoListagemComponent } from './brinquedo-listagem/brinquedo-lista
 import { BrinquedoCadastroComponent } from './brinquedo-cadastro/brinquedo-cadastro.component';
 
 const routes: Routes = [
-  {path: "", component: BrinquedoListagemComponent},
-  {path: "cadastro", component: BrinquedoCadastroComponent},
+  {path: '', component: BrinquedoListagemComponent},
+  {path: 'cadastro', component: BrinquedoCadastroComponent},
   { path: 'cadastro/:id', component: BrinquedoCadastroComponent }
 ];
 
