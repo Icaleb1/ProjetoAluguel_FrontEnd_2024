@@ -26,30 +26,28 @@
               <option [ngValue]="endereco">{{ endereco.nome }}</option>
               }
             </select>
-              <!-- Array dos endereços -->
+              <br>
             </div>
 
-            <div class="row" >
-              <div class="form-group col-md-2">
-                <label>&nbsp;</label>
-                <button type="submit" class="form-control btn btn-primary"><i class="bi bi-check">
-                  </i><strong>Alugar</strong></button>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <button type="submit" class="form-control btn btn-primary me-2">
+                  <i class="bi bi-check"></i><strong>Alugar</strong>
+                </button>&thinsp;
+                <button type="submit" class="form-control btn btn-warning">
+                  <strong>Voltar</strong>
+                </button>
               </div>
-              <div class="form-group col-md-1">
-                <label>&nbsp;</label>
-                <button type="submit" class="form-control btn btn-warning"><strong>Voltar</strong></button>
-
-              </div>
+              <button class="btn btn-warning" style="width: 200px;">
+                <img src="assets/images/IconMais.png" style="width: 18px; height: 20px; padding-bottom: 3px;" alt="adicionar novo endereço">
+                <strong>Adicionar Endereço</strong>
+              </button>
             </div>
         </div>
         </div>
       </div>
     </form>
-    <div style="text-align: right;">
-      <br>
-      <button class="btn btn-warning col-md-3" style="width: 200px;"><img src="assets/images/IconMais.png" style="width: 18px;height: 20px; padding-bottom: 3px;" alt="adicionar novo endereço">
-       <strong>Adicionar Endereço</strong></button>
-     </div>
+    <br><br>
      <table class="table table-dark table-striped border" style="border-color: white;">
       <thead style="text-align: center;">
         <tr>

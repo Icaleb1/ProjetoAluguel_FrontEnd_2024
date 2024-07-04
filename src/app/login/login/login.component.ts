@@ -35,7 +35,7 @@ export class LoginComponent {
         }
       },
       (erro) => {
-        Swal.fire('Erro', erro.error.mensagem, 'error');
+        Swal.fire('Erro ao logar!', erro.error.mensagem, 'error');
       }
     );
   }

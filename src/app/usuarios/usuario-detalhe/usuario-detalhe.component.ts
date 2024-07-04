@@ -67,7 +67,7 @@ export class UsuarioDetalheComponent implements OnInit{
       Swal.fire('Usuario cadastrado com sucesso!', '', 'success'); this.voltar();
     },
     (erro) => {
-      Swal.fire('Erro ao salvar o Usuario!', erro, 'error');
+      Swal.fire('Erro ao cadastrar-se!', erro, 'error');
     }
   );
 }
