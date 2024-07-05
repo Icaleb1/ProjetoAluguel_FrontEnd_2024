@@ -30,17 +30,21 @@
               [(ngModel)]="seletor.valorMaximo">
             </div>
           </div>
-          <div class="row" style="text-align: right;">
-            <div class="form-group col-md-2">
-              <label>&nbsp;</label>
-              <button type="submit" class="form-control btn btn-primary" (click)="pesquisar()"><i class="bi bi-check">
-                </i><strong>Pesquisar</strong></button>
+          <br>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex">
+              <button type="submit" class="form-control btn btn-primary me-2" (click)="pesquisar()">
+                <i class="bi bi-check"></i><strong>Pesquisar</strong>
+              </button>
+              <button type="submit" class="form-control btn btn-warning" (click)="limpar()">
+                <strong>Voltar</strong>
+              </button>
             </div>
-            <div class="form-group col-md-1">
-              <label>&nbsp;</label>
-              <button type="submit" class="form-control btn btn-warning" (click)="limpar()"><strong>Voltar</strong></button>
+            <button class="btn btn-warning" [routerLink]="['/home/brinquedos/cadastro']" style="width: 171px;">
+              <img src="assets/images/IconMais.png" style="width: 18px; height: 20px; padding-bottom: 3px;" alt="adicionar novo brinquedo">
+              <strong>Novo Brinquedo</strong>
+            </button>
           </div>
-        </div>
       </div>
       </div>
     </form>
@@ -77,9 +81,5 @@
         }
       </tbody>
     </table>
-    <div style="text-align: right;">
-     <button class="btn btn-warning col-md-3" [routerLink]="['/home/brinquedos/cadastro']" style="width: 171px;"><img src="assets/images/IconMais.png" style="width: 18px;height: 20px; padding-bottom: 3px;" alt="adicionar novo brinquedo">
-      <strong>Novo Brinquedo</strong></button>
-    </div>
   </div>
 
