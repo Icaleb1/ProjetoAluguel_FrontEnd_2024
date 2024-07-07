@@ -58,13 +58,13 @@
         </tr>
       </thead>
       <tbody class="table-group-divider border" style="text-align: center; border-color: white;">
-     <!--  @for (aluguel of alugueis; track aluguel){--> 
+        @for (aluguel of alugueis; track aluguel){
           <tr class="sobrePor">
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{aluguel.dataDevolucao}}</td>
+            <td>{{aluguel.idEnderecoDeEntrega}}</td>
+            <td>{{aluguel.valorTotal}}</td>
           </tr>
-        <!-- } -->
+        }
       </tbody>
     </table>
         

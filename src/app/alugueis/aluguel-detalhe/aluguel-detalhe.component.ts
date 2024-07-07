@@ -136,7 +136,7 @@ export class AluguelDetalheComponent implements OnInit {
           // Após cadastrar o frete, atualiza o aluguel
           this.aluguelService.atualizar(this.aluguel).subscribe(
             () => {
-              Swal.fire('Aluguel atualizado com sucesso!', '', 'success');
+              Swal.fire('Aluguel efetuado com sucesso!', '', 'success');
             },
             (erro) => {
               Swal.fire('Erro ao atualizar aluguel: ' + erro.error.mensagem, '', 'error');
