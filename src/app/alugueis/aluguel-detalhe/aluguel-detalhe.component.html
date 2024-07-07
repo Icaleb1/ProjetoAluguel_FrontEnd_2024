@@ -11,23 +11,24 @@
           <div class="row">
             <div class="form-group col-md-6" style="text-align: left;">
               <label for="dataDevolucao"><strong>Data Devolução:</strong></label>
-              <input type="date" class="form-control" name="dataDevolucao" [(ngModel)]="aluguel.dataDevolucao" required>
+              <input type="date" style="color: #6aaeed; border-color: white;" class="form-control" name="dataDevolucao" [(ngModel)]="aluguel.dataDevolucao" required>
             </div>
             <div class="form-group col-md-6" style="text-align: left;">
               <label for="dataDevDef"><strong>Data de Devolução Definitiva :</strong></label>
-              <input type="date" class="form-control" name="dataDevDef" [(ngModel)]="aluguel.dataDevDefinitiva" required>
+              <input type="date" style="color: #6aaeed; border-color: white;"  class="form-control" name="dataDevDef" [(ngModel)]="aluguel.dataDevDefinitiva" required>
             </div>
             <div class="form-group col-md-6" style="text-align: left;">
               <label for="distancia"><strong>Distância:</strong></label>
-              <input type="number" class="form-control" name="distancia" [(ngModel)]="frete.distancia" required>
+              <input type="number" style="color: #6aaeed; border-color: white;" class="form-control" name="distancia" [(ngModel)]="frete.distancia" required>
             </div>
-            <div class="form-group col-md-3" style="text-align: left;">
+            <div class="form-group col-md-6" style="text-align: left;">
               <label for="enderecoDeEntrega"><strong>Endereço</strong></label>
-              <select class="form-control" name="enderecoDeEntrega" [(ngModel)]="aluguel.idEnderecoDeEntrega" required>
+              <select class="form-control" style="color: #6aaeed; border-color: white;" name="enderecoDeEntrega" [(ngModel)]="aluguel.idEnderecoDeEntrega" required>
                 <option *ngFor="let endereco of enderecos" [ngValue]="endereco">{{ endereco.nome }}</option>
               </select>
             </div>
           </div>
+          <br>
           <div class="d-flex justify-content-between">
             <div class="d-flex">
               <button type="button" class="form-control btn btn-primary me-2" (click)="atualizarAluguel()">
@@ -49,11 +50,11 @@
     <br><br>
      <table class="table table-dark table-striped border" style="border-color: white;">
       <thead style="text-align: center;">
-        <tr>
+        <tr class="sobrePor">
           <th>Nome</th>
-          <th style="width: 600px;">Descrição</th>
+          <th style="width: 900px;">Descrição</th>
           <th>Valor da diária</th>
-          <th class="col-md-2">Ações</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody class="table-group-divider border" style="text-align: center; border-color: white;">
@@ -63,11 +64,9 @@
             <td>{{ item.brinquedo.descricao }}</td>
             <td>R$ {{ item.brinquedo.valorDiaria }}</td>
             <td>
-              <div class="row">
                   <button class="btn btn-danger col-md-1" style="width: 55px; text-align: center;">
                     <img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira" (click)="removerItem(item.id)">
                   </button>
-                </div>
           </td>
           </tr>
         }
