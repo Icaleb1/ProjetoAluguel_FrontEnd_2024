@@ -2,6 +2,7 @@
     <form >
       <div class="card">
         <div class="card-header text-white bg-primary">
+          <h4>Brinquedos</h4>
         </div>
         <div class="card-body">
           <div class="row">
@@ -37,7 +38,7 @@
                 <i class="bi bi-check"></i><strong>Pesquisar</strong>
               </button>
               <button type="submit" class="form-control btn btn-warning" (click)="limpar()">
-                <strong>Voltar</strong>
+                <strong>Limpar</strong>
               </button>
             </div>
             <button class="btn btn-warning" [routerLink]="['/home/brinquedos/cadastro']" style="width: 171px;">
@@ -72,9 +73,9 @@
               <div class="row">
                   <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;" (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;
 
-                  <button class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira" (click)="excluir(brinquedo)"></button>&nbsp;&nbsp;
+                  <button  (click)="excluir(brinquedo)" class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>&nbsp;&nbsp;
 
-                  <button class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;"><img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar" (click)="editar(brinquedo.id)"></button>
+                  <button (click)="editar(brinquedo.id)" class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;"><img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar" ></button>
                 </div>
           </td>
           </tr>

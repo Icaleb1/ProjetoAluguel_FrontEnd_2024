@@ -31,6 +31,8 @@ export class EnderecosService {
   public atualizar(endereco: Endereco): Observable<any>{
     return this.httpClient.put<any>(this.API+"/atualizar", endereco)
   }
-
+  public excluirEndereco(id:number): Observable<boolean>{
+    return this.httpClient.delete<boolean>(this.API+"/"+id)
+  }
 
 }

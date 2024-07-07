@@ -5,6 +5,7 @@ import { ItemCarrinho } from '../../shared/model/itemCarrinho';
 import { Aluguel } from '../../shared/model/aluguel';
 import { Endereco } from '../../shared/model/endereco';
 import { Frete } from '../../shared/model/frete';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-aluguel-listagem',
@@ -21,4 +22,15 @@ export class AluguelListagemComponent {
   usuarioAutenticado: Usuario;
   ehAdministrador: boolean;
   alugueis: Array<Aluguel> = new Array();
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+  ){}
+
+
+
+  voltar(){
+    this.router.navigate(['/home/brinquedos']);
+  }
 }
