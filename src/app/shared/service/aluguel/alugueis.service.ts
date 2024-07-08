@@ -10,7 +10,7 @@ export class AlugueisService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/restrito/aluguel';
+  private readonly API = 'http://localhost:8080/ProjetoAluguel_BackEnd_2024/rest/aluguel';
 
   public cadastrarAluguel(aluguel: Aluguel): Observable<any>{
     return this.httpClient.post<any>(this.API, aluguel)
@@ -32,5 +32,12 @@ export class AlugueisService {
     return this.httpClient.put<any>(this.API+"/finalizar", aluguel);
   }
 
+  public consultarPorIdUsuario(idUsuario: number): Observable<Aluguel[]>{
+    return this.httpClient.get<Aluguel[]>(this.API+"/todos"+idUsuario);
+  }
+
+  public devolucao(idAluguel: number): Observable<any>{
+    return this.httpClient.put<any>(this.API+"/devolucao/", idAluguel);
+  }
 
 }

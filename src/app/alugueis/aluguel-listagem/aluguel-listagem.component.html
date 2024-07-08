@@ -56,6 +56,7 @@
           <th style="width: 30%;">Endereço</th>
           <th style="width: 30%;">Data</th>
           <th style="width: 20%;">Valor</th>
+          <th style="width: 20%;">Ações</th>
         </tr>
       </thead>
       <tbody class="table-group-divider border" style="text-align: center; border-color: white;">
@@ -64,9 +65,13 @@
             <td>{{aluguel.dataDevolucao}}</td>
             <td>{{aluguel.idEnderecoDeEntrega}}</td>
             <td>{{aluguel.valorTotal}}</td>
+            <td>
+              <div class="row">
+                  <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;" (click)="devolver(aluguel.id)">Devolver</button> &nbsp;&nbsp; 
+                </div>
+          </td>
           </tr>
         }
       </tbody>
     </table>
-        
-        
+

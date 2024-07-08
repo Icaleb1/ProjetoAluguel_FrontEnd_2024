@@ -143,6 +143,7 @@ export class AluguelDetalheComponent implements OnInit {
     }
   }
 
+
   private atualizarAluguelBackend(): void {
     this.aluguelService.atualizar(this.aluguel).subscribe(
       (aluguelAtualizado) => {
@@ -179,16 +180,9 @@ export class AluguelDetalheComponent implements OnInit {
 
 
   private executarFinalizacaoAluguel(): void {
-    this.finalizarAluguel(this.aluguel).subscribe(
-      () => {
-        Swal.fire('Aluguel finalizado com sucesso!', '', 'success');
-      },
-      (erro) => {
-        Swal.fire('Erro ao finalizar aluguel: ' + erro.error.mensagem, '', 'error');
-      }
-    );
+    this.router.navigate(['/home/alugueis'])
+    Swal.fire('Aluguel finalizado com sucesso!', '', 'success');
   }
-
 
  private finalizarAluguel(aluguel: Aluguel): Observable<any> {
     return this.aluguelService.finalizarAluguel(aluguel);
@@ -198,7 +192,7 @@ export class AluguelDetalheComponent implements OnInit {
 
 
   public validarCampos(): boolean {
-    if (!this.aluguel.dataDevolucao || !this.aluguel.idEnderecoDeEntrega || !this.aluguel.dataDevDefinitiva || !this.frete.distancia) {
+    if (!this.aluguel.dataDevolucao || !this.aluguel.idEnderecoDeEntrega  || !this.frete.distancia) {
       Swal.fire('Erro!', 'Todos os campos devem ser preenchidos!', 'error');
       return false;
     }

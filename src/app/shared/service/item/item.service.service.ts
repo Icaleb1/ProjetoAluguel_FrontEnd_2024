@@ -16,4 +16,8 @@ export class ItemServiceService {
     return this.httpClient.get<Array<Item>>(this.API+"/todos-por-aluguel/"+idAluguel)
   }
 
+  public criarItem(item: Item): Observable<any>{
+    return this.httpClient.post<any>(this.API, item)
+  }
+
 }
