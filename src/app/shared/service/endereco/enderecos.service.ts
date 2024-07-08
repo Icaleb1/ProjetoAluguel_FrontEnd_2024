@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Endereco } from '../../model/endereco';
 import { Observable } from 'rxjs';
+import { EnderecoSeletor } from '../../model/seletor/enderecoSeletor';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class EnderecosService {
   public consultarEnderecosPorIdUsuario(idUsuario:number): Observable<Endereco[]>{
     return this.httpClient.get<Endereco[]>(this.API+"/todos/"+idUsuario);
   }
+
+  public consultarComSeletor(seletor: EnderecoSeletor, idUsuario: number): Observable<Array<Endereco>> {
+    return this.httpClient.post<Array<Endereco>>(this.API+"/filtro/" + {idUsuario}, seletor);
+}
 
   public consultarPrincipalPorIdUsuario(idUsuario:number): Observable<Endereco>{
     return this.httpClient.get<Endereco>(this.API+"/principal/"+idUsuario)
