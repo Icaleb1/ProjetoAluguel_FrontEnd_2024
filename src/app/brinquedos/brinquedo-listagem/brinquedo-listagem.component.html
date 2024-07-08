@@ -41,7 +41,7 @@
                 <strong>Limpar</strong>
               </button>
             </div>
-            <button class="btn btn-warning" [routerLink]="['/home/brinquedos/cadastro']" style="width: 171px;">
+            <button class="btn btn-warning" [routerLink]="['/home/brinquedos/cadastro']" style="width: 171px;" *ngIf="ehAdministrador">
               <img src="assets/images/IconMais.png" style="width: 18px; height: 20px; padding-bottom: 3px;" alt="adicionar novo brinquedo">
               <strong>Novo Brinquedo</strong>
             </button>
@@ -53,11 +53,11 @@
     <table class="table table-dark table-striped border" style="border-color: white;">
       <thead style="text-align: center;">
         <tr style="text-align: center; vertical-align: middle;">
-          <th style="width: 40px">Nome</th>
-          <th style="width: 635px;">Descrição</th>
-          <th style="width: 40px">Estoque total</th>
+          <th style="width: 164px">Nome</th>
+          <th style="width: 583px;">Descrição</th>
+          <th style="width: 40px">Estoque Total</th>
           <th style="width: 40px">Itens Disponíveis</th>
-          <th style="width: 100px">Valor da diária</th>
+          <th style="width: 100px">Valor da Diária</th>
           <th class="">Ações</th>
         </tr>
       </thead>
@@ -70,18 +70,18 @@
             <td>{{ brinquedo.estoqueDisponivel}}</td>
             <td>R$ {{ brinquedo.valorDiaria}}</td>
             <td>
-              <div class="row">
+              <div class="row" style="text-align: center;">
                 &nbsp;&nbsp;
                   <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;"
-                  (click)="adicionarItemAoCarrinho(brinquedo)"><strong>Alugar</strong></button> &nbsp;&nbsp;
+                  (click)="adicionarItemAoCarrinho(brinquedo)" ><strong>Alugar</strong></button> &nbsp;&nbsp;
+                
+                  <button  (click)="excluir(brinquedo)" class="btn btn-danger col-md-3" style="width: 55px; text-align: center;" *ngIf="ehAdministrador"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>&nbsp;&nbsp;
 
-                  <button  (click)="excluir(brinquedo)" class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>&nbsp;&nbsp;
-
-                  <button (click)="editar(brinquedo.id)" class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;">
+                  <button (click)="editar(brinquedo.id)" *ngIf="ehAdministrador" class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;">
                     <img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar" ></button> &nbsp;&nbsp;
                 
                   <button class="btn" style="width: 45px; background-color: rgb(137, 185, 65);"
-                 (click)="criarItem(brinquedo)"><img src="assets/images/IconMais.png" style="width: 18px; height: 20px; padding-bottom: 3px;" alt="adicionar novo brinquedo">
+                 (click)="criarItem(brinquedo)" *ngIf="ehAdministrador"><img src="assets/images/IconMais.png" style="width: 18px; height: 20px; padding-bottom: 3px;" alt="adicionar novo brinquedo">
                 </button>
                 </div>
           </td>

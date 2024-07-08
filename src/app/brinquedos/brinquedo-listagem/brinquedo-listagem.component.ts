@@ -40,19 +40,16 @@ export class BrinquedoListagemComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    let usuarioNoStorage = localStorage.getItem('usuarioAutenticado');
+    
+    const usuarioNoStorage = localStorage.getItem('usuarioAutenticado');
 
-    if(usuarioNoStorage){
+    if (usuarioNoStorage) {
       this.usuarioAutenticado = JSON.parse(usuarioNoStorage);
-      this.ehAdministrador = this.usuarioAutenticado?.administrador == true;
-
-      if(this.ehAdministrador){
-        this.router.navigate(['/home/brinquedos']);
-
-      }
+      this.ehAdministrador = this.usuarioAutenticado.administrador;
     } else {
-      this.router.navigate(['/login']);
+      console.error('Nenhum usuário autenticado encontrado no armazenamento local');
     }
+
 
 
     this.consultarTodosBrinquedos();

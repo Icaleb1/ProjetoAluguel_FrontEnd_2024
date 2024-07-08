@@ -61,7 +61,7 @@ export class UsuarioDetalheComponent implements OnInit{
 
   public cadastrarUsuario(){
     this.usuario.ativo = true;
-    this.usuario.administrador = true;
+    this.usuario.administrador = false;
     this.usuarioService.cadastrarUsuario(this.usuario).subscribe(
     (resposta) => {
       Swal.fire('Usuario cadastrado com sucesso!', '', 'success'); this.voltar();
