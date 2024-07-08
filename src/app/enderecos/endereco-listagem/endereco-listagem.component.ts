@@ -65,7 +65,7 @@ export class EnderecoListagemComponent implements OnInit {
         this.enderecos = resultado;
       },
       erro => {
-        console.log('Erro ao buscar todas os endereços ' + erro + '!');
+        console.log('Erro ao buscar todos os endereços ' + erro + '!');
       }
     );
   }
