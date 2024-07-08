@@ -59,17 +59,15 @@ export class EnderecoListagemComponent implements OnInit {
   }
 
   public pesquisar() {
-    const idUsuario: number = this.seletor.idUsuario;
-    this.enderecosService.consultarEnderecosPorIdUsuario(idUsuario).subscribe(
+    this.enderecosService.consultarComSeletor(this.seletor, this.usuarioAutenticado.id).subscribe(
       resultado => {
         this.enderecos = resultado;
       },
       erro => {
-        console.log('Erro ao buscar todos os endereços ' + erro + '!');
+        Swal.fire('Erro!', 'Erro ao buscar endereços: ' + erro.error.mensagem, 'error');
       }
     );
   }
-
 
   public excluir(enderecoSelecionado: Endereco) {
     Swal.fire({
