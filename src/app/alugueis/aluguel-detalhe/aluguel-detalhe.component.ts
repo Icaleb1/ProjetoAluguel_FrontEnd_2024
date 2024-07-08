@@ -206,11 +206,6 @@ export class AluguelDetalheComponent implements OnInit {
       return false;
     }
 
-    if (dataDevDefinitiva < hoje) {
-      Swal.fire('Erro!', 'Data de devolução definitiva não pode ser menor que a data de hoje!', 'error');
-      return false;
-    }
-
     return true;
   }
 
@@ -229,22 +224,21 @@ export class AluguelDetalheComponent implements OnInit {
   calcularValorTotal(): number {
     let totalItens = 0;
 
-    // Somar o valor diária de cada brinquedo em cada item do carrinho
     if (this.itens.length > 0) {
       totalItens = this.itens.reduce((acc, item) => {
-        const valorDiaria = item.brinquedo.valorDiaria; // Assume-se que 'brinquedo' possui o atributo 'valorDiaria'
+        const valorDiaria = item.brinquedo.valorDiaria;
         return acc + valorDiaria;
       }, 0);
     }
 
-    // Adicionar o valor do frete, se definido
-    if (this.frete.valor) {
-      return totalItens + this.frete.valor;
-    } else {
-      return totalItens;
-    }
-  }
+    let valorTotal = totalItens;
 
+    if (this.frete.valor) {
+      valorTotal += this.frete.valor;
+    }
+
+    return parseFloat(valorTotal.toFixed(2));
+  }
 
 
   // finalizarAluguel(){

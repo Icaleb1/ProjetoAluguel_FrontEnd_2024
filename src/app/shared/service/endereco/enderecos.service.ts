@@ -22,7 +22,7 @@ export class EnderecosService {
   }
 
   public consultarComSeletor(seletor: EnderecoSeletor, idUsuario: number): Observable<Array<Endereco>> {
-    return this.httpClient.post<Array<Endereco>>(this.API+"/filtro/" + {idUsuario}, seletor);
+    return this.httpClient.post<Array<Endereco>>(this.API+"/filtro/" + idUsuario, seletor);
 }
 
   public consultarPrincipalPorIdUsuario(idUsuario:number): Observable<Endereco>{
