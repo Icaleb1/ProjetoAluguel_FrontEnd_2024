@@ -1,5 +1,5 @@
-  <div class="container" data-bs-theme="dark" style="width: 80%;">
-    <form >
+  <div class="container" data-bs-theme="dark">
+    <form>
       <div class="card">
         <div class="card-header text-white bg-primary">
           <h4>Brinquedos</h4>
@@ -53,12 +53,12 @@
     <table class="table table-dark table-striped border" style="border-color: white;">
       <thead style="text-align: center;">
         <tr style="text-align: center; vertical-align: middle;">
-          <th>Nome</th>
-          <th style="width: 600px;">Descrição</th>
-          <th>Estoque total</th>
-          <th>Itens Disponíveis</th>
-          <th>Valor da diária</th>
-          <th class="col-md-2">Ações</th>
+          <th style="width: 40px">Nome</th>
+          <th style="width: 635px;">Descrição</th>
+          <th style="width: 40px">Estoque total</th>
+          <th style="width: 40px">Itens Disponíveis</th>
+          <th style="width: 100px">Valor da diária</th>
+          <th class="">Ações</th>
         </tr>
       </thead>
       <tbody class="table-group-divider border" style="text-align: center; border-color: white;">
@@ -71,16 +71,18 @@
             <td>R$ {{ brinquedo.valorDiaria}}</td>
             <td>
               <div class="row">
-
-                <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;"
-                 (click)="criarItem(brinquedo)">adicionar</button> &nbsp;&nbsp;
-
+                &nbsp;&nbsp;
                   <button class="btn btn-primary col-md-4" style="width: 75px; text-align: center;"
-                  (click)="adicionarItemAoCarrinho(brinquedo)">Alugar</button> &nbsp;&nbsp;
+                  (click)="adicionarItemAoCarrinho(brinquedo)"><strong>Alugar</strong></button> &nbsp;&nbsp;
 
                   <button  (click)="excluir(brinquedo)" class="btn btn-danger col-md-3" style="width: 55px; text-align: center;"><img style="width: 20px; height: 24px; padding-bottom: 4px;" src="assets/images/IconLixeira.png" alt="lixeira"></button>&nbsp;&nbsp;
 
-                  <button (click)="editar(brinquedo.id)" class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;"><img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar" ></button>
+                  <button (click)="editar(brinquedo.id)" class="btn col-md-3" onmouseover="this.style.backgroundColor='#a89108';" onmouseout="this.style.backgroundColor='#e3c30d'" style="background-color: #e3c30d;width: 60px; text-align: center;">
+                    <img style="width: 30px; height: 25px; padding-bottom: 4px;" src="assets/images/IconEditar.png" alt="editar" ></button> &nbsp;&nbsp;
+                
+                  <button class="btn" style="width: 45px; background-color: rgb(137, 185, 65);"
+                 (click)="criarItem(brinquedo)"><img src="assets/images/IconMais.png" style="width: 18px; height: 20px; padding-bottom: 3px;" alt="adicionar novo brinquedo">
+                </button>
                 </div>
           </td>
           </tr>
