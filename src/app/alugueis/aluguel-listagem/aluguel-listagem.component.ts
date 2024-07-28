@@ -62,8 +62,8 @@ export class AluguelListagemComponent implements OnInit{
     );
   }
 
-  public devolver(idAluguel: number) {
-    this.aluguelService.devolucao(idAluguel).subscribe(
+  public devolver(aluguel: Aluguel) {
+    this.aluguelService.devolucao(aluguel).subscribe(
       resultado => {
         Swal.fire('Aluguel devolvido com sucesso! ', '', 'success')
         // Aqui você pode atualizar a lista de aluguéis após a devolução, se necessário

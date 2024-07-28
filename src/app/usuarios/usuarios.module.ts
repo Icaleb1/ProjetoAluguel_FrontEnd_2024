@@ -19,7 +19,6 @@ import { RequestInterceptor } from '../auth/request.interceptor';
     FormsModule
   ],
   providers: [
-
   ],
 })
 export class UsuariosModule { }

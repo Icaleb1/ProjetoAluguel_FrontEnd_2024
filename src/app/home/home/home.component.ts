@@ -140,7 +140,7 @@ export class HomeComponent implements OnInit {
     this.carrinhoService.adicionarItensAoAluguel(aluguelId, this.itens).subscribe(
       resultado => {
         Swal.fire('Sucesso!', 'Itens adicionados ao aluguel com sucesso!', 'success');
-        this.limparCarrinho(aluguelId);
+        this.router.navigate(['/home/alugueis/alugar/' + aluguelId]);
       },
       erro => {
         Swal.fire('Erro!', 'Erro ao adicionar itens ao aluguel: ' + erro.error.mensagem, 'error');
@@ -152,13 +152,11 @@ export class HomeComponent implements OnInit {
     this.carrinhoService.limparCarrinho(this.carrinho.id).subscribe(
       () => {
         this.carrinhoService.setItensCarrinho([]);
-        this.router.navigate(['/home/alugueis/alugar/' + aluguelId]);
     //    {path: "alugar/:id", component: AluguelDetalheComponent}
       },
       erro => {
         Swal.fire('Erro!', 'Erro ao limpar o carrinho: ' + erro.error.mensagem, 'error');
         this.carrinhoService.setItensCarrinho([]);
-        this.router.navigate(['/home/alugueis/alugar/', aluguelId]);
       }
     );
   }
